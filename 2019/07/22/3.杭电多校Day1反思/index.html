@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>ChenShouのBlog</title>
+  <title>杭电多校Day 1 反思 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+  <meta name="description" content="今天开始杭电的多校训练，被虐的无地自容，由此开始决定要好好学习 赛后放出了题解，稍后直接贴出来">
 <meta name="keywords" content="学生,ACMer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenShouのBlog">
-<meta property="og:url" content="https://kangzhentao.github.io/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="杭电多校Day 1 反思">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/07/22/3.杭电多校Day1反思/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta property="og:description" content="今天开始杭电的多校训练，被虐的无地自容，由此开始决定要好好学习 赛后放出了题解，稍后直接贴出来">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-22T12:38:26.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenShouのBlog">
-<meta name="twitter:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta name="twitter:title" content="杭电多校Day 1 反思">
+<meta name="twitter:description" content="今天开始杭电的多校训练，被虐的无地自容，由此开始决定要好好学习 赛后放出了题解，稍后直接贴出来">
   
     <link rel="alternative" href="/atom.xml" title="ChenShouのBlog" type="application/atom+xml">
   
@@ -156,148 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-5.杭电多校Day 1 T5官方题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-3.杭电多校Day1反思" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/5.杭电多校Day 1 T5官方题解/">杭电多校Day1 T5官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/5.杭电多校Day 1 T5官方题解/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h1><p>题意为给定一个有向图，删掉一条边的代价为边权，要求以尽可能少的总代价删掉一些边，使得最短路增加。</p>
-<p>先求出最短路，然后保留所有满足$d_{e_y}-d_{e_x}=e_w$的边，对于新的图求$1$到$n$的最小割即为答案。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">bool Reduce(T &amp;a,T const &amp;b) &#123;</span><br><span class="line">    return a&gt;b?a=b,1:0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const int XN=1e4+11;</span><br><span class="line">const int INF=2e9;</span><br><span class="line">const long long oo=1e18;</span><br><span class="line"></span><br><span class="line">int n;</span><br><span class="line">long long sp[XN];</span><br><span class="line"></span><br><span class="line">namespace D &#123;</span><br><span class="line">    struct Edge &#123;</span><br><span class="line">        int to,v;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    std::vector&lt;Edge&gt; G[XN];</span><br><span class="line"></span><br><span class="line">    void Run() &#123;</span><br><span class="line">        static bool ud[XN];</span><br><span class="line">        std::priority_queue&lt;std::pair&lt;long long,int&gt;,std::vector&lt;std::pair&lt;long long,int&gt;&gt;,std::greater&lt;std::pair&lt;long long,int&gt;&gt;&gt; Q;</span><br><span class="line">        std::fill(sp+1,sp+1+n,oo);</span><br><span class="line">        std::fill(ud+1,ud+1+n,0);</span><br><span class="line">        sp[1]=0;</span><br><span class="line">        Q.push(std::make_pair(0,1));</span><br><span class="line">        while(!Q.empty()) &#123;</span><br><span class="line">            int pos=Q.top().second;Q.pop();</span><br><span class="line">            if(ud[pos])</span><br><span class="line">                continue;</span><br><span class="line">            ud[pos]=1;</span><br><span class="line">            for(auto &amp;e : G[pos]) &#123;</span><br><span class="line">                int u=e.to;</span><br><span class="line">                if(Reduce(sp[u],sp[pos]+e.v))</span><br><span class="line">                    Q.push(std::make_pair(sp[u],u));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">namespace I &#123;</span><br><span class="line">    struct Edge &#123;</span><br><span class="line">        int to,cap,v;</span><br><span class="line">        Edge *rev,*pre;</span><br><span class="line">    &#125;*G[XN],*preArc[XN];</span><br><span class="line"></span><br><span class="line">    void AddEdge(int x,int y,int c) &#123;</span><br><span class="line">        G[x]=new Edge&#123;y,c,0,NULL,G[x]&#125;;</span><br><span class="line">        G[y]=new Edge&#123;x,0,0,G[x],G[y]&#125;;</span><br><span class="line">        G[x]-&gt;rev=G[y];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    int Aug() &#123;</span><br><span class="line">        int d=INF;</span><br><span class="line">        for(int pos=n;preArc[pos];pos=preArc[pos]-&gt;rev-&gt;to)</span><br><span class="line">            Reduce(d,preArc[pos]-&gt;cap-preArc[pos]-&gt;v);</span><br><span class="line">        for(int pos=n;preArc[pos];pos=preArc[pos]-&gt;rev-&gt;to) &#123;</span><br><span class="line">            preArc[pos]-&gt;v+=d;</span><br><span class="line">            preArc[pos]-&gt;rev-&gt;v-=d;</span><br><span class="line">        &#125;</span><br><span class="line">        return d;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    long long Run() &#123;</span><br><span class="line">        static int num[XN],d[XN];</span><br><span class="line">        static Edge *cArc[XN];</span><br><span class="line">        std::fill(num+1,num+n,0);</span><br><span class="line">        std::fill(d+1,d+1+n,0);</span><br><span class="line">        std::copy(G+1,G+1+n,cArc+1);</span><br><span class="line">        num[0]=n;preArc[1]=0;</span><br><span class="line">        long long flow=0;</span><br><span class="line">        for(int pos=1;d[1]&lt;n;) &#123;</span><br><span class="line">            if(pos==n) &#123;</span><br><span class="line">                flow+=Aug();</span><br><span class="line">                pos=1;</span><br><span class="line">            &#125;</span><br><span class="line">            bool adv=0;</span><br><span class="line">            for(Edge *&amp;e=cArc[pos];e;e=e-&gt;pre) &#123;</span><br><span class="line">                int u=e-&gt;to;</span><br><span class="line">                if(e-&gt;cap&gt;e-&gt;v &amp;&amp; d[u]+1==d[pos]) &#123;</span><br><span class="line">                    adv=1;</span><br><span class="line">                    preArc[pos=u]=e;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(!adv) &#123;</span><br><span class="line">                if(--num[d[pos]]==0)</span><br><span class="line">                    break;</span><br><span class="line">                d[pos]=n;</span><br><span class="line">                for(Edge *e=cArc[pos]=G[pos];e;e=e-&gt;pre)</span><br><span class="line">                    if(e-&gt;cap&gt;e-&gt;v)</span><br><span class="line">                        Reduce(d[pos],d[e-&gt;to]+1);</span><br><span class="line">                num[d[pos]]++;</span><br><span class="line">                if(pos!=1)</span><br><span class="line">                    pos=preArc[pos]-&gt;rev-&gt;to;//cArc</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return flow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    //freopen(&quot;test1.in&quot;,&quot;r&quot;,stdin);</span><br><span class="line">    std::ios::sync_with_stdio(0);</span><br><span class="line">    std::cin.tie(0);</span><br><span class="line">    int T;std::cin&gt;&gt;T;</span><br><span class="line">    while(T--) &#123;</span><br><span class="line">        int m;std::cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        for(int i=1;i&lt;=n;++i) &#123;</span><br><span class="line">            D::G[i].clear();</span><br><span class="line">            I::G[i]=0;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=1;i&lt;=m;++i) &#123;</span><br><span class="line">            int x,y,v;</span><br><span class="line">            std::cin&gt;&gt;x&gt;&gt;y&gt;&gt;v;</span><br><span class="line">            D::G[x].push_back(&#123;y,v&#125;);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        D::Run();</span><br><span class="line"></span><br><span class="line">        if(sp[n]==oo)</span><br><span class="line">            std::cout&lt;&lt;0&lt;&lt;&apos;\n&apos;;</span><br><span class="line">        else &#123;</span><br><span class="line">            for(int pos=1;pos&lt;=n;++pos)</span><br><span class="line">                for(auto &amp;e : D::G[pos])</span><br><span class="line">                    if(sp[e.to]-sp[pos]==e.v)</span><br><span class="line">                        I::AddEdge(pos,e.to,e.v);</span><br><span class="line"></span><br><span class="line">            std::cout&lt;&lt;I::Run()&lt;&lt;&apos;\n&apos;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/5.杭电多校Day 1 T5官方题解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4.杭电多校Day 1 T1官方题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/4.杭电多校Day 1 T1官方题解/">杭电多校Day1 T1官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/4.杭电多校Day 1 T1官方题解/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Blank"><a href="#Blank" class="headerlink" title="Blank"></a>Blank</h1><p>定义 $ dp[i][j][k][t] $ 代表填完前 $ t $ 个位置后， $ {0,1,2,3}\ $ 这4个数字最后一次出现的位置，<br>排序后为 $ i,j,k,t (i&lt;j&lt;k&lt;t) $ 的方案数目，则按照第 $ t+1 $ 位的数字的四种选择，可以得到四种转移。</p>
-<p>对于限制可以按照限制区间的右端点分类，求出 $ dp[i][j][k][t] $ 后，找到所有以 $ t $ 为区间右端点的限制条件，如果当前状态不满足所有限制条件则不合法，不再向后转移。</p>
-<p>总时间复杂度 $ O(n^4) $ 。滚动一维，空间复杂度 $ O(n^3) $ </p>
-<p><strong>UPD</strong>  一开始的模数为$10^9+7$，后来统一改成了$998244353$，但最后在polygon上生成数据的时候标程放错了，就跑出了模$10^9+7$的结果。对被这道题卡了的大佬们表示歉意！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line"></span><br><span class="line">typedef pair&lt;int, int&gt; piir;</span><br><span class="line"></span><br><span class="line">const int N = 100 + 5;</span><br><span class="line"></span><br><span class="line">int n, m, ans;</span><br><span class="line"></span><br><span class="line">int dp[2][N][N][N];</span><br><span class="line"></span><br><span class="line">vector &lt;piir&gt; lims[N];</span><br><span class="line"></span><br><span class="line">inline void Mod(int &amp;x) &#123;</span><br><span class="line">    static int mod = 998244353;//1e9 + 7;</span><br><span class="line">    if (x &gt;= mod) x -= mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	int Case, ans, l, r, x;</span><br><span class="line">    int i, j, k, t, p;</span><br><span class="line">    for (scanf(&quot;%d&quot;, &amp;Case); Case --; ) &#123;</span><br><span class="line">        ans = 0;</span><br><span class="line">        scanf(&quot;%d %d&quot;, &amp;n, &amp;m);</span><br><span class="line">        for (i = 1; i &lt;= n; i ++)</span><br><span class="line">            lims[i].clear();</span><br><span class="line">        for (i = 0; i &lt; m; i ++) &#123;</span><br><span class="line">            scanf(&quot;%d %d %d&quot;, &amp;l, &amp;r, &amp;x);</span><br><span class="line">            lims[r].push_back(piir(l, x));</span><br><span class="line">        &#125;</span><br><span class="line">        dp[0][0][0][0] = 1;</span><br><span class="line">        for (i = p = 1; i &lt;= n; i ++, p ^= 1) &#123;</span><br><span class="line">        	for (j = 0; j &lt;= i; j ++)</span><br><span class="line">                for (k = 0; k &lt;= j; k ++)</span><br><span class="line">                    for (t = 0; t &lt;= k; t ++)</span><br><span class="line">            			dp[p][j][k][t] = 0;</span><br><span class="line">            for (j = 0; j &lt; i; j ++)</span><br><span class="line">                for (k = 0; k &lt;= j; k ++)</span><br><span class="line">                    for (t = 0; t &lt;= k; t ++) &#123;</span><br><span class="line">                        Mod(dp[p][j][k][t] += dp[p ^ 1][j][k][t]);</span><br><span class="line">                        Mod(dp[p][i - 1][k][t] += dp[p ^ 1][j][k][t]);</span><br><span class="line">                        Mod(dp[p][i - 1][j][t] += dp[p ^ 1][j][k][t]);</span><br><span class="line">                        Mod(dp[p][i - 1][j][k] += dp[p ^ 1][j][k][t]);</span><br><span class="line">                    &#125;</span><br><span class="line">            for (j = 0; j &lt; i; j ++)</span><br><span class="line">                for (k = 0; k &lt;= j; k ++)</span><br><span class="line">                    for (t = 0; t &lt;= k; t ++)</span><br><span class="line">                        for (piir tmp : lims[i])</span><br><span class="line">                            if (1 + (j &gt;= tmp.first) + (k &gt;= tmp.first) + (t &gt;= tmp.first) != tmp.second)</span><br><span class="line">                                dp[p][j][k][t] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">        for (i = 0, p = n &amp; 1; i &lt; n; i ++)</span><br><span class="line">            for (j = 0; j &lt;= i; j ++)</span><br><span class="line">                for (k = 0; k &lt;= j; k ++)</span><br><span class="line">                    Mod(ans += dp[p][i][j][k]);</span><br><span class="line">        printf(&quot;%d\n&quot;, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/4.杭电多校Day 1 T1官方题解/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.杭电多校Day1反思" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/3.杭电多校Day1反思/">杭电多校Day 1 反思</a>
+    <h1 class="article-title" itemprop="name">
+      杭电多校Day 1 反思
     </h1>
   
 
@@ -323,16 +190,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/3.杭电多校Day1反思/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/07/22/3.杭电多校Day1反思/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/07/22/4.杭电多校Day 1 T1官方题解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          杭电多校Day1 T1官方题解
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/22/2.﻿关于用Hexo在GitHub上搭建博客 /" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于用Hexo在GitHub上搭建博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -352,151 +287,14 @@
 
 
 
-
   
-    <article id="post-2.﻿关于用Hexo在GitHub上搭建博客 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/2.﻿关于用Hexo在GitHub上搭建博客 /">关于用Hexo在GitHub上搭建博客</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/22/2.﻿关于用Hexo在GitHub上搭建博客 /" class="archive-article-date">
-  	<time datetime="2019-07-22T10:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在他人博客的指导下，我成功的通过用Hexo在GitHub上搭建了属于自己的博客</p>
-<p>创建博客的意义在于<del>体验创建网页和维护前端的乐趣</del>记录学习道路上的点点滴滴</p>
-<p>在此感谢给予我参考的博客</p>
-<p><a href="https://zhangslob.github.io/2017/02/28/%E6%95%99%E4%BD%A0%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%8CHexo-Github/" target="_blank" rel="noopener">教你免费搭建个人博客，Hexo&amp;Github</a></p>
-<p><a href="https://www.jianshu.com/p/2afac1bc0af8" target="_blank" rel="noopener">Hexo博客 新手安装及使用教程</a></p>
-<p><a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">一个简洁优雅的hexo主题 A simple and elegant theme for hexo. </a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/2.﻿关于用Hexo在GitHub上搭建博客 /">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-1.hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/1.hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2019/07/21/1.hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:43:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>﻿<br>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/1.hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -519,8 +317,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
