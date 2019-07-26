@@ -16,10 +16,13 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="RNG题目大意是在长度为$ 0 $~$ n $的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上求两段线段相交的概率是多少。 首先看到题目可以想到容斥原理：  相交的概率=1-不相交的概率  那么现在我们要求的是不相交的概率 对于一段线段而言，有两个端点——左端点和右端点，假设第一段线段的两个端点是$l_1,r_1$第二段线段的两个端点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T10:13:58.285Z">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/raw/master/img/RNG_1.png?raw=true%7C">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/raw/master/img/RNG_2.png?raw=true">
+<meta property="og:updated_time" content="2019-07-26T10:17:06.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆元习题">
 <meta name="twitter:description" content="RNG题目大意是在长度为$ 0 $~$ n $的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上求两段线段相交的概率是多少。 首先看到题目可以想到容斥原理：  相交的概率=1-不相交的概率  那么现在我们要求的是不相交的概率 对于一段线段而言，有两个端点——左端点和右端点，假设第一段线段的两个端点是$l_1,r_1$第二段线段的两个端点">
+<meta name="twitter:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/raw/master/img/RNG_1.png?raw=true%7C">
   
   
     <link rel="icon" href="/favicon.png">
@@ -180,8 +183,8 @@
 <p>对于一段线段而言，有两个端点——左端点和右端点，假设第一段线段的两个端点是$l_1,r_1$第二段线段的两个端点是$l_2,r_2$</p>
 <p>我们按照题目先选一段再选一段就有两种情况（按照端点分情况）</p>
 <p>第一种就是选取的</p>
-<p><a href="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true|" target="_blank" rel="noopener">https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true|</a></p>
-<p><a href="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_2.png?raw=true" target="_blank" rel="noopener">https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_2.png?raw=true</a></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/raw/master/img/RNG_1.png?raw=true%7C" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/raw/master/img/RNG_2.png?raw=true" alt></p>
 <p>$$\sum_{r_2 = 1} ^ {r_1} \frac{r_1-r_2}{r_2}+\sum_{r_2 = r_1+1} ^ { n } \frac{r_2-r_1}{r_1}$$</p>
 
       
