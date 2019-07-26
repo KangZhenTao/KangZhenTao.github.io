@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、__128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-26T01:53:42.211Z">
+<meta property="og:updated_time" content="2019-07-26T02:27:50.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆元">
 <meta name="twitter:description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、__128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
@@ -201,6 +201,13 @@
 <p>所以我们根据 $x_2$ 和 $y_2$ 就能求出 $x_1$ 和 $y_1$ 。而众所周知的， $gcd$ 的解就是 $b==0$ 的时候，这时我们的 $x=1$ ，而因为 $b==0$ ，所以我们的 $y$ 随便取一个就行（好像大多数人用0），然后我们在回溯的时候，不断往前推我们的 $x$ 和 $y$ ，直到得出我们最初的那一组解。（这其实就是一个构造的过程）</p>
 <p>然后，我们发现只有当我们的 $a$ 与 $b$ 互质的时候即 $ gcd(a,b)=1 $ 时，这个二元一次方程变成了： $ x_1\times a+y_1\times b=1 $ （等同于 $ x_1\times a=1(\% b) $) 或 $ y_1\times b=1(\% a) $ ）而这，就相当于我们逆元的定义式.我们再用上述方法将 $x_1$ 和 $y_1$ 求出来，就是逆元</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)<span class="keyword">return</span> x=<span class="number">1</span>,y=<span class="number">0</span>,a;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,y,x);</span><br><span class="line">    y-=(a/b)*x; <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、费马小定理求法"><a href="#二、费马小定理求法" class="headerlink" title="二、费马小定理求法"></a>二、费马小定理求法</h3><p>费马小定理如下：<br>    若整数$a$与一个质数$n$互质，则有 ：<br>$$ a^{p-1} \equiv 1 (\%n) $$</p>
+<p>这就是费马小定理，看起来和逆元毫无关系，但是如果稍微修改一下：<br>$$ a \times a^{p-2} \equiv 1 (\%n) $$</p>
+<p>就可以发现和逆元的定义惊人的相似，因此快速幂上场</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">quick_multiply</span><span class="params">(ll x)</span></span>&#123;<span class="comment">//求x在%mod意义下的逆元</span></span><br><span class="line">    <span class="keyword">int</span> times=n<span class="number">-2</span>;ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(times)&#123;</span><br><span class="line">        <span class="keyword">if</span>(times&amp;<span class="number">1</span>)ans=ans*x%mod;</span><br><span class="line">        x=x*x%mod; times&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -478,6 +485,10 @@ MathJax.Hub.Queue(function() {
           
             <li class="search-li">
               <a href="https://blog.nowcoder.net/chenshou" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>牛客</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://jieweiyan.github.io/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>yjw_nb</a>
             </li>
           
         </ul>
