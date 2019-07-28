@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>Hello World | ChenShouのBlog</title>
+  <title>逆元 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta name="keywords" content="blog">
+  <meta name="description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、__128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
+<meta name="keywords" content="学生,ACMer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://kangzhentao.github.io/2019/07/21/1.hello-world/index.html">
+<meta property="og:title" content="逆元">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/07/25/7.逆元/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、__128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-28T01:47:23.611Z">
+<meta property="og:updated_time" content="2019-07-26T05:09:22.050Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="逆元">
+<meta name="twitter:description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、__128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
   
   
     <link rel="icon" href="/favicon.png">
@@ -151,41 +151,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-1.hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-7.逆元" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      逆元
     </h1>
   
 
         
-        <a href="/2019/07/21/1.hello-world/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:40:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+        <a href="/2019/07/25/7.逆元/" class="archive-article-date">
+  	<time datetime="2019-07-25T11:22:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>﻿<br>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h1 id="逆元"><a href="#逆元" class="headerlink" title="逆元"></a>逆元</h1><p>在计算机里面为了存储数据于是我们定义了 int、long、long long、__128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求  </p>
+<p> 大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲</p>
+<p>逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））</p>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>逆元，这里指的是分数（小数）对某个较大整数进行取模的运算</p>
+<p> $$ {\frac{a}{b}  \%  n} $$</p>
+<p>一般的取模运算，就是  整数 % 整数  ,像 $ {5\%3=2} $ , $ {14 \% 5 = 4} $ </p>
+<p>而分数，小数的取模运算，比起整数来说还有点难以理解 比如<br>$$ {\frac{3}{4}\%1000000007=750000006} $$<br>$$ {\frac{1}{1}\%1000000007=1} $$ </p>
+<p>而对于分数意义下的取模运算，可以有以下理解</p>
+<p>通俗的讲，逆元可以看做一个数的倒数的整数形式，但是一个数的逆元在不同的 $\%$ 意义下是不一样的。</p>
+<p> $$ a\times x\equiv1 \% n   →   a\times \frac{1}{a}\equiv1 \% n $$</p>
+<p>这个方程便是逆元的真正定义，$x$ 的解即代表 $a$ 在 $\% n$ 意义下的逆元，通俗的讲：此时的 $x$ 就相当于 $a$ 的倒数，这样 $a\times x$ 便会等于1，在 $\%n$ 意义下余数必定为一。当然这个式子要建立在 $a$ 与 $n$ 互质的基础上</p>
+<p>可是逆元有什么用呢？直接用倒数不行吗？这是因为我们发现一个分数 $\%$ 一个整数时是不能直接模运算的，但是可以进行乘法运算，我们就要用到逆元（一个数倒数的整数形式）</p>
+<p>就像：<br>$$\frac{a}{b}\% n \not =\frac{a\% n}{b\% n}\% n $$<br>但是：<br>$$\frac{a}{b}\% n=(a\times b^{-1})\% n$$</p>
+<p>所以当除运算碰上我们的模运算时，我们就需要 $\%$ 模数 意义下的逆元了</p>
+<p>P.S.</p>
+<p>1.若n|(a-b)，则a≡b (% n)。例如 11 ≡ 4 (% 7)， 18 ≡ 4(% 7)<br>2.(a % n)=(b % n)意味a≡b (% n)<br>3.对称性：a≡b (% n)等价于b≡a (% n)<br>4.传递性：若a≡b (% n)且b≡c (% n) ，则a≡c (% n)</p>
+<p>(a + b) % n = (a % n + b % n) % n （1）<br>(a - b) % n = (a % n - b % n) % n （2）<br>(a * b) % n = (a % n * b % n) % n （3）<br> a ^ b  % n = ((a % n)^b)     % n （4）</p>
+<h2 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h2><h3 id="一、拓展欧几里得求法"><a href="#一、拓展欧几里得求法" class="headerlink" title="一、拓展欧几里得求法"></a>一、拓展欧几里得求法</h3><p>1.同时存在两个整数 $ x_1 $ $ y_1 $ ，使得：$x_1\times a+y_1\times b=gcd(a,b)$</p>
+<p>2.同理，同时存在两个整数 $ x_2 $ $ y_2 $ ，使得：$x_2\times b+y_2\times (a\% b) =gcd(b,a\% b)$</p>
+<p>根据 gcd 的性质，上述两个等式的右半部分相同，同理它们的左半部分也相同</p>
+<p>易得</p>
+<p>1.$ x_1\times a+y_1\times b=x_2\times b+y_2\times (a\% b) $</p>
+<p>2.$ x_1\times a+y_1\times b=x_2\times b+y_2\times (a-\frac{a}{b}\times b) $</p>
+<p>3.$ x_1\times a+y_1\times b=y_2\times a+(x_2-y_2\times \frac{a}{b})\times b $</p>
+<p>4.$ y_1=x_2-y_2\times \frac{a}{b} $</p>
+<p>所以我们根据 $x_2$ 和 $y_2$ 就能求出 $x_1$ 和 $y_1$ 。而众所周知的， $gcd$ 的解就是 $b==0$ 的时候，这时我们的 $x=1$ ，而因为 $b==0$ ，所以我们的 $y$ 随便取一个就行（好像大多数人用0），然后我们在回溯的时候，不断往前推我们的 $x$ 和 $y$ ，直到得出我们最初的那一组解。（这其实就是一个构造的过程）</p>
+<p>然后，我们发现只有当我们的 $a$ 与 $b$ 互质的时候即 $ gcd(a,b)=1 $ 时，这个二元一次方程变成了： $ x_1\times a+y_1\times b=1 $ （等同于 $ x_1\times a=1(\% b) $) 或 $ y_1\times b=1(\% a) $ ）而这，就相当于我们逆元的定义式.我们再用上述方法将 $x_1$ 和 $y_1$ 求出来，就是逆元</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)<span class="keyword">return</span> x=<span class="number">1</span>,y=<span class="number">0</span>,a;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,y,x);</span><br><span class="line">    y-=(a/b)*x; <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="二、费马小定理求法"><a href="#二、费马小定理求法" class="headerlink" title="二、费马小定理求法"></a>二、费马小定理求法</h3><p>费马小定理如下：<br>    若整数$a$与一个质数$n$互质，则有 ：<br>$$ a^{p-1} \equiv 1 (\%n) $$</p>
+<p>这就是费马小定理，看起来和逆元毫无关系，但是如果稍微修改一下：<br>$$ a \times a^{p-2} \equiv 1 (\%n) $$</p>
+<p>就可以发现和逆元的定义惊人的相似，因此快速幂上场</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">quick_multiply</span><span class="params">(ll x)</span></span>&#123;<span class="comment">//求x在%mod意义下的逆元</span></span><br><span class="line">    <span class="keyword">int</span> times=n<span class="number">-2</span>;ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(times)&#123;</span><br><span class="line">        <span class="keyword">if</span>(times&amp;<span class="number">1</span>)ans=ans*x%mod;</span><br><span class="line">        x=x*x%mod; times&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
       
 
@@ -194,17 +215,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">blog</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -255,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/07/21/1.hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/07/25/7.逆元/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -269,15 +279,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/21/2.Build a blog/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/26/8.逆元习题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          用Hexo在GitHub上搭建博客
+          逆元习题
         
       </div>
     </a>
   
+  
+    <a href="/2019/07/23/6.关于GCD/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于GCD</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -420,14 +435,6 @@ MathJax.Hub.Queue(function() {
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
