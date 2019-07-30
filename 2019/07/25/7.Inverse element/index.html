@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、 __128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-28T01:49:01.353Z">
+<meta property="og:updated_time" content="2019-07-30T01:44:20.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆元">
 <meta name="twitter:description" content="逆元在计算机里面为了存储数据于是我们定义了 int、long、long long、 __128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求    大整数的题目比较入门，也是通过手动模拟就可以实现，这里不讲 逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））">
@@ -170,31 +170,36 @@
 <p>逆元也比较入门 ，只是需要一点点基础知识（费马小定理（快速幂）或者 拓展欧几里得（模的性质））</p>
 <a id="more"></a>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>逆元，这里指的是分数（小数）对某个较大整数进行取模的运算</p>
-<script type="math/tex; mode=display">{\frac{a}{b}  \\%  n}</script><p>一般的取模运算，就是  整数 % 整数  ,像 $ {5\\%3=2} $ , $ {14 \\% 5 = 4} $ </p>
+<script type="math/tex; mode=display">\frac{a}{b}  \%  n</script><p>一般的取模运算，就是  整数 % 整数  ,像 $ {5\%3=2} $ , $ {14 \% 5 = 4} $ </p>
 <p>而分数，小数的取模运算，比起整数来说还有点难以理解 比如  </p>
-<script type="math/tex; mode=display">{\frac{3}{4}\\%1000000007=750000006}</script><script type="math/tex; mode=display">{\frac{1}{1}\\%1000000007=1}</script><p>而对于分数意义下的取模运算，可以有以下理解</p>
+<script type="math/tex; mode=display">{\frac{3}{4}\%1000000007=750000006}</script><script type="math/tex; mode=display">{\frac{1}{1}\%1000000007=1}</script><p>而对于分数意义下的取模运算，可以有以下理解</p>
 <p>通俗的讲，逆元可以看做一个数的倒数的整数形式，但是一个数的逆元在不同的 $\\%$ 意义下是不一样的。</p>
-<script type="math/tex; mode=display">a\times x\equiv1 \\% n   →   a\times \frac{1}{a}\equiv1 \\% n</script><p>这个方程便是逆元的真正定义，$x$ 的解即代表 $a$ 在 $\\% n$ 意义下的逆元，通俗的讲：此时的 $x$ 就相当于 $a$ 的倒数，这样 $a\times x$ 便会等于1，在 $\\%n$ 意义下余数必定为一。当然这个式子要建立在 $a$ 与 $n$ 互质的基础上</p>
-<p>可是逆元有什么用呢？直接用倒数不行吗？这是因为我们发现一个分数 $\\%$ 一个整数时是不能直接模运算的，但是可以进行乘法运算，我们就要用到逆元（一个数倒数的整数形式）</p>
+<script type="math/tex; mode=display">a\times x\equiv1 \\% n   →   a\times \frac{1}{a}\equiv1 \\% n</script><p>这个方程便是逆元的真正定义，$x$ 的解即代表 $a$ 在 $\% n$ 意义下的逆元，通俗的讲：此时的 $x$ 就相当于 $a$ 的倒数，这样 $a\times x$ 便会等于1，在 $\%n$ 意义下余数必定为一。当然这个式子要建立在 $a$ 与 $n$ 互质的基础上</p>
+<p>可是逆元有什么用呢？直接用倒数不行吗？这是因为我们发现一个分数 $\%$ 一个整数时是不能直接模运算的，但是可以进行乘法运算，我们就要用到逆元（一个数倒数的整数形式）</p>
 <p>就像： </p>
-<script type="math/tex; mode=display">\frac{a}{b}\\% n \not =\frac{a\\% n}{b\\% n}\\% n</script><p>但是：</p>
-<script type="math/tex; mode=display">\frac{a}{b}\\% n=(a\times b^{-1})\\% n</script><p>所以当除运算碰上我们的模运算时，我们就需要 $\\%$ 模数 意义下的逆元了</p>
+<script type="math/tex; mode=display">\frac{a}{b}\% n \not =\frac{a\% n}{b\% n}\% n</script><p>但是：</p>
+<script type="math/tex; mode=display">\frac{a}{b}\% n=(a\times b^{-1})\% n</script><p>所以当除运算碰上我们的模运算时，我们就需要 $\\%$ 模数 意义下的逆元了</p>
 <p>P.S.</p>
 <p>1.若n|(a-b)，则a≡b (% n)。例如 11 ≡ 4 (% 7)， 18 ≡ 4(% 7)<br>2.(a % n)=(b % n)意味a≡b (% n)<br>3.对称性：a≡b (% n)等价于b≡a (% n)<br>4.传递性：若a≡b (% n)且b≡c (% n) ，则a≡c (% n)</p>
-<p>(a + b) % n = (a % n + b % n) % n （1）<br>(a - b) % n = (a % n - b % n) % n （2）<br>(a <em> b) % n = (a % n </em> b % n) % n （3）<br> a ^ b  % n = ((a % n)^b)     % n （4）</p>
-<h2 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h2><h3 id="一、拓展欧几里得求法"><a href="#一、拓展欧几里得求法" class="headerlink" title="一、拓展欧几里得求法"></a>一、拓展欧几里得求法</h3><p>1.同时存在两个整数 $ x_1 $ $ y_1 $ ，使得：$x_1\times a+y_1\times b=gcd(a,b)$</p>
-<p>2.同理，同时存在两个整数 $ x_2 $ $ y_2 $ ，使得：$x_2\times b+y_2\times (a\\% b) =gcd(b,a\\% b)$</p>
+<script type="math/tex; mode=display">
+\begin{array}
+(a + b) &\% n & = & (a \% n + b \% n) &\% n & （1）\\
+(a - b) &\% n & = & (a \% n - b \% n) &\% n &（2）\\
+(a * b) &\% n & = & (a \% n * b \% n) &\% n &（3）\\
+ a ^ b  &\% n & = & ((a \% n)^b)     &\% n &（4）\\
+ \end{array}</script><h2 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h2><h3 id="一、拓展欧几里得求法"><a href="#一、拓展欧几里得求法" class="headerlink" title="一、拓展欧几里得求法"></a>一、拓展欧几里得求法</h3><p>1.同时存在两个整数 $ x_1 $ $ y_1 $ ，使得：$ x_1 \times a + y_1 \times b = gcd(a,b) $</p>
+<p>2.同理，同时存在两个整数 $ x_2 $ $ y_2 $ ，使得：$ x_2 \times b + y_2 \times ( a \% b) = gcd ( b , a \% b ) $</p>
 <p>根据 gcd 的性质，上述两个等式的右半部分相同，同理它们的左半部分也相同</p>
 <p>易得</p>
-<p>1.$ x_1\times a+y_1\times b=x_2\times b+y_2\times (a\\% b) $</p>
+<p>1.$ x_1\times a+y_1\times b=x_2\times b+y_2\times (a\% b) $</p>
 <p>2.$ x_1\times a+y_1\times b=x_2\times b+y_2\times (a-\frac{a}{b}\times b) $</p>
 <p>3.$ x_1\times a+y_1\times b=y_2\times a+(x_2-y_2\times \frac{a}{b})\times b $</p>
 <p>4.$ y_1=x_2-y_2\times \frac{a}{b} $</p>
 <p>所以我们根据 $x_2$ 和 $y_2$ 就能求出 $x_1$ 和 $y_1$ 。而众所周知的， $gcd$ 的解就是 $b==0$ 的时候，这时我们的 $x=1$ ，而因为 $b==0$ ，所以我们的 $y$ 随便取一个就行（好像大多数人用0），然后我们在回溯的时候，不断往前推我们的 $x$ 和 $y$ ，直到得出我们最初的那一组解。（这其实就是一个构造的过程）</p>
-<p>然后，我们发现只有当我们的 $a$ 与 $b$ 互质的时候即 $ gcd(a,b)=1 $ 时，这个二元一次方程变成了： $ x_1\times a+y_1\times b=1 $ （等同于 $ x_1\times a=1(\\% b) $) 或 $ y_1\times b=1(\\% a) $ ）而这，就相当于我们逆元的定义式.我们再用上述方法将 $x_1$ 和 $y_1$ 求出来，就是逆元<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)<span class="keyword">return</span> x=<span class="number">1</span>,y=<span class="number">0</span>,a;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,y,x);</span><br><span class="line">    y-=(a/b)*x; <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后，我们发现只有当我们的 $a$ 与 $b$ 互质的时候即 $ gcd(a,b)=1 $ 时，这个二元一次方程变成了： $ x_1\times a+y_1\times b=1 $ （等同于 $ x_1\times a=1(\% b) $) 或 $ y_1\times b=1(\% a) $ ）而这，就相当于我们逆元的定义式.我们再用上述方法将 $x_1$ 和 $y_1$ 求出来，就是逆元<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> &amp;x,<span class="keyword">int</span> &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)<span class="keyword">return</span> x=<span class="number">1</span>,y=<span class="number">0</span>,a;</span><br><span class="line">    <span class="keyword">int</span> d=exgcd(b,a%b,y,x);</span><br><span class="line">    y-=(a/b)*x; <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="二、费马小定理求法"><a href="#二、费马小定理求法" class="headerlink" title="二、费马小定理求法"></a>二、费马小定理求法</h3><p>费马小定理如下：<br>    若整数$a$与一个质数$n$互质，则有 ：</p>
-<script type="math/tex; mode=display">a^{p-1} \equiv 1 (\\%n)</script><p>这就是费马小定理，看起来和逆元毫无关系，但是如果稍微修改一下：</p>
-<script type="math/tex; mode=display">a \times a^{p-2} \equiv 1 (\\%n)</script><p>就可以发现和逆元的定义惊人的相似，因此快速幂上场<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">quick_multiply</span><span class="params">(ll x)</span></span>&#123;<span class="comment">//求x在%mod意义下的逆元</span></span><br><span class="line">    <span class="keyword">int</span> times=n<span class="number">-2</span>;ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(times)&#123;</span><br><span class="line">        <span class="keyword">if</span>(times&amp;<span class="number">1</span>)ans=ans*x%mod;</span><br><span class="line">        x=x*x%mod; times&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<script type="math/tex; mode=display">a^{p-1} \equiv 1 (\%n)</script><p>这就是费马小定理，看起来和逆元毫无关系，但是如果稍微修改一下：</p>
+<script type="math/tex; mode=display">a \times a^{p-2} \equiv 1 (\%n)</script><p>就可以发现和逆元的定义惊人的相似，因此快速幂上场<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">quick_multiply</span><span class="params">(ll x)</span></span>&#123;<span class="comment">//求x在%mod意义下的逆元</span></span><br><span class="line">    <span class="keyword">int</span> times=n<span class="number">-2</span>;ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(times)&#123;</span><br><span class="line">        <span class="keyword">if</span>(times&amp;<span class="number">1</span>)ans=ans*x%mod;</span><br><span class="line">        x=x*x%mod; times&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -438,11 +443,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
               </li>
             
             <div class="clearfix"></div>
@@ -605,7 +610,7 @@ MathJax.Hub.Queue(function() {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>

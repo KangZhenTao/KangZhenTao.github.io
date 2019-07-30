@@ -17,7 +17,7 @@
 <meta property="og:description" content="在前面，逆元相关习题里面初步涉及到了容斥原理；在这里，我们详细的讲一下容斥原理。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/in&out.png?raw=true">
-<meta property="og:updated_time" content="2019-07-29T14:47:11.619Z">
+<meta property="og:updated_time" content="2019-07-30T01:52:08.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" 容斥原理">
 <meta name="twitter:description" content="在前面，逆元相关习题里面初步涉及到了容斥原理；在这里，我们详细的讲一下容斥原理。">
@@ -182,14 +182,7 @@
 <h3 id="关于维恩图的原理"><a href="#关于维恩图的原理" class="headerlink" title="关于维恩图的原理"></a>关于维恩图的原理</h3><p>用维恩图来表示集合A、B和C：</p>
 <p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/in&amp;out.png?raw=true" alt></p>
 <p>那么的$A \cup B \cup C$面积就是集合A、B、C各自面积之和减去$A \cap B$、$B \cap C$、$C \cap A$的面积，再加上$A \cap B \cap C$的面积。即：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-S_{A \cup B \cup C}&=S_{A}+S_{B}+S_{C}-S_{A \cap B}-S_{B \cap C}-S_{C \cap A}+S_{A \cap B \cap C}
-\end{align}</script><script type="math/tex; mode=display">
-\begin{align}
-f(x) & = (m+n)^2 \\
-     & = m^2+2mn+n^2 \\
-\end{align}</script><p>由此，我们也可以解决n个集合求并的问题。</p>
+<script type="math/tex; mode=display">S_{A \cup B \cup C} = S_{A}+S_{B}+S_{C}-S_{A \cap B}-S_{B \cap C}-S_{C \cap A}+S_{A \cap B \cap C}</script><p>由此，我们也可以解决n个集合求并的问题。</p>
 <h3 id="关于概率论的原理"><a href="#关于概率论的原理" class="headerlink" title="关于概率论的原理"></a>关于概率论的原理</h3><p>设事件$A_i(i=1,2,…,n),P(A_i)$代表发生某些事件的概率（即发生其中至少一个事件的概率），则：</p>
 <script type="math/tex; mode=display">P\left( \bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P\left( A_i \right) - \sum_{ i,j : 1 \leq i < j \leq n } P\left( A_i \cap A_j \right) + \sum_{ i,j,k : 1 \leq i < j < k \leq n } P\left( A_i \cap A_j \cap A_k \right) + ... + (-1)^{n-1}P\left( A_i \cap ... \cap A_n \right)</script><p>它同样可以写得更简洁一些（将B作为所有Ai的集合）：</p>
 <script type="math/tex; mode=display">P\left| \bigcup_{i=1}^{n} A_i \right| = \sum_{C \subseteq B} (-1)^{size(C)-1}  P\left| \bigcap_{e \in C} e\right|</script><h2 id="容斥原理的证明"><a href="#容斥原理的证明" class="headerlink" title="容斥原理的证明"></a>容斥原理的证明</h2><p>我们要证明下面的等式：</p>
@@ -237,16 +230,16 @@ f(x) & = (m+n)^2 \\
 <p>我们在 $ n $ 个匹配串中选出 $ k $ 个，作为集合 $ X $ ，统计满足集合 $ X $ 中匹配的字符串数。求解这个问题时应用容斥原理，对X的所有超集进行运算，得到每个 $ X $ 集合的结果：</p>
 <script type="math/tex; mode=display">ans(X) = \\sum_{Y \supseteq X} (-1)^{\left| Y \right| - k} · f(Y)</script><p>此处 $ f(Y) $ 代表满足匹配集合 $ Y $ 的字符串数。</p>
 <p>如果我们将所有的 $ ans(X) $ 相加，就可以得到最终结果：</p>
-<script type="math/tex; mode=display">ans = \\sum_{X : \left| X \right| = k } ans(X)</script><p>这样，就得到了一个复杂度$O(3^k·k)$的解法，但是这个算法可以作一些改进，因为在求解$ans(X)$时有些$Y$集合是重复的。</p>
+<script type="math/tex; mode=display">ans = \sum_{X : \left| X \right| = k } ans(X)</script><p>这样，就得到了一个复杂度$O(3^k·k)$的解法，但是这个算法可以作一些改进，因为在求解$ans(X)$时有些$Y$集合是重复的。</p>
 <p>回到利用容斥原理公式可以发现，当选定一个$Y$时，所有 $ C_{\left| Y \right|}^{k} $ 中 $ X $的结果都是相同的，其符号都为 $ (-1)^{\left| Y \right|-k} $ 。所以可以用如下公式求解：</p>
-<script type="math/tex; mode=display">ans = \\sum_{Y:\left| Y \right| \ge k} (-1)^{\left| Y \right|-k}·C_{\left| Y \right|}^{k}·f(Y)</script><p>这样，就得到了一个复杂度$O(2^k·k)$的解法</p>
+<script type="math/tex; mode=display">ans = \sum_{Y:\left| Y \right| \ge k} (-1)^{\left| Y \right|-k}·C_{\left| Y \right|}^{k}·f(Y)</script><p>这样，就得到了一个复杂度$O(2^k·k)$的解法</p>
 <p>现在我们来求解第二个问题：能满足至少$k$个匹配的字符串有多少个。</p>
 <p>显然的，我们可以用问题一的方法来计算满足$k$到$n$的所有结果。问题一的结论依然成立，不同之处在于这个问题中的$X$不是大小都为$k$的，而是$\ge k$的所有集合。</p>
 <p>如此进行计算，最后将$f(Y)$作为另一个因子：将所有的$ans$做和，有点类似二项式展开：</p>
 <script type="math/tex; mode=display">(-1)^{\left| Y \right|-k}·C_{\left| Y \right|}^{k} + (-1)^{\left| Y \right|-k-1}·C_{\left| Y \right|}^{k+1} + (-1)^{\left| Y \right|-k-2}·C_{\left| Y \right|}^{k+2} + ... + (-1)^{\left| Y \right| - \left| Y \right|}·C_{\left| Y \right|}^{\left| Y \right|}</script><p>在《具体数学》( Graham, Knuth, Patashnik. “Concrete Mathematics” [1998] )中，介绍了一个著名的关于二项式系数的公式：</p>
-<script type="math/tex; mode=display">\\sum_{k=0}^{m}(-1)^{k}·C_{n}^{k} = (-1)^{m}·C_{n-1}^{k}</script><p>根据这个公式，可以将前面的结果进行化简：</p>
+<script type="math/tex; mode=display">\sum_{k=0}^{m}(-1)^{k}·C_{n}^{k} = (-1)^{m}·C_{n-1}^{k}</script><p>根据这个公式，可以将前面的结果进行化简：</p>
 <script type="math/tex; mode=display">(-1)^{\left| Y \right|-k}·C_{\left| Y \right| - k }^{\left| Y \right| - 1 }</script><p>那么，对于这个问题，我们也得到了一个$O(2^k·k)$的解法：</p>
-<script type="math/tex; mode=display">ans = \\sum_{Y:\left| Y \right| \ge k} (-1)^{\left| Y \right|-k}·C_{\left| Y \right| - k }^{\left| Y \right| - 1 } ·f(Y)</script><h3 id="路径的数目问题"><a href="#路径的数目问题" class="headerlink" title="路径的数目问题"></a>路径的数目问题</h3><p>在一个的方格阵中，有$k$个格子是不可穿越的墙。一开始在格子$(1,1)$（最左下角的格子）中有一个机器人。这个机器人只能向上或向右行进，最后它将到达位于格子$(n,m)$的笼子里，其间不能经过障碍物格子。求一共有多少种路线可以到达终点。</p>
+<script type="math/tex; mode=display">ans = \sum_{Y:\left| Y \right| \ge k} (-1)^{\left| Y \right|-k}·C_{\left| Y \right| - k }^{\left| Y \right| - 1 } ·f(Y)</script><h3 id="路径的数目问题"><a href="#路径的数目问题" class="headerlink" title="路径的数目问题"></a>路径的数目问题</h3><p>在一个的方格阵中，有$k$个格子是不可穿越的墙。一开始在格子$(1,1)$（最左下角的格子）中有一个机器人。这个机器人只能向上或向右行进，最后它将到达位于格子$(n,m)$的笼子里，其间不能经过障碍物格子。求一共有多少种路线可以到达终点。</p>
 <p>为了方便区分所有障碍物格子，我们建立坐标系，用$(x,y)$表示格子的坐标。</p>
 <p>首先我们考虑没有障碍物的时候：也就是如何求从一个点到另一个点的路径数。如果从一个点在一个方向要走$x$个格子，在另一个方向要走$y$个格子，那么通过简单的组合原理可以得知结果为：</p>
 <script type="math/tex; mode=display">C_{x+y}^{x}</script><p>现在来考虑有障碍物时的情况，我们可以利用容斥原理：求出至少经过一个障碍物时的路径数。</p>
@@ -260,7 +253,7 @@ f(x) & = (m+n)^2 \\
 <h3 id="素数四元组的个数问题"><a href="#素数四元组的个数问题" class="headerlink" title="素数四元组的个数问题"></a>素数四元组的个数问题</h3><p>给出 $ n $ 个数，从其中选出$4$个数，使它们的最大公约数为$1$，问总共有多少中取法。</p>
 <p>我们解决它的逆问题：求最大公约数 $ d&gt;1 $ 的四元组的个数。</p>
 <p>运用容斥原理，将求得的对于每个$d$的四元组个数的结果进行加减。</p>
-<script type="math/tex; mode=display">ans = \\sum_{d\ge2} (-1)^{deg(d)-1}·f(d)</script><p>其中 $ deg(d) $ 代表 $ d $ 的质因子个数， $ f(d) $ 代表四个数都能被 $ d $ 整除的四元组的个数。</p>
+<script type="math/tex; mode=display">ans = \sum_{d\ge2} (-1)^{deg(d)-1}·f(d)</script><p>其中 $ deg(d) $ 代表 $ d $ 的质因子个数， $ f(d) $ 代表四个数都能被 $ d $ 整除的四元组的个数。</p>
 <p>求解 $ f(d) $ 时，只需要利用组合方法，求从所有满足被 $ d $ 整除的 $ a_i $ 中选4个的方法数。</p>
 <p>然后利用容斥原理，统计出所有能被一个素数整除的四元组个数，然后减掉所有能被两个素数整除的四元组个数，再加上被三个素数整除的四元组个数…</p>
 <h3 id="和睦数三元组的个数问题"><a href="#和睦数三元组的个数问题" class="headerlink" title="和睦数三元组的个数问题"></a>和睦数三元组的个数问题</h3><p>给出一个整数 $ n \leq 10 $。选出a, b, c (其中$2 \leq a &lt; b &lt; c \leq n $ ) ，组成和睦三元组，即：</p>
@@ -277,7 +270,7 @@ f(x) & = (m+n)^2 \\
 <p>再利用埃拉托色尼筛法，在遍历到某个素数$i$时，枚举它在$2$到$n$范围内的所有倍数，更新这些倍数的$deg[]$值，如果有倍数包含了多个$i$，那么就把这个倍数的$good[]$值赋为false。</p>
 <p>· 然后，利用容斥原理，求出2到$n$每个数的$cnt[i]$：在2到$n$中不与$i$互素的数的个数。</p>
 <p>回想容斥原理的公式，它所求的集合是不会包含重复元素的。也就是如果这个集合包含的某个素数多于一次，它们不应再被考虑。</p>
-<p>所以只有当一个数$i$满足$good[i]=true$时，它才会被用于容斥原理。枚举$i$的所有倍数$i <em> j$，那么对于$i </em> j$，就有$\frac{N}{i}$个与$i * j$同样包含$i$（素数集合）的数。将这些结果进行加减，符号由$deg[i]$（素数集合的大小）决定。如果$deg[i]$为奇数，那么我们要用加号，否则用减号。</p>
+<p>所以只有当一个数$i$满足$good[i]=true$时，它才会被用于容斥原理。枚举$i$的所有倍数$i <em> j$，那么对于$i </em> j$，就有 $ \frac{N}{i} $ 个与$i * j$同样包含$i$（素数集合）的数。将这些结果进行加减，符号由$deg[i]$（素数集合的大小）决定。如果$deg[i]$为奇数，那么我们要用加号，否则用减号。</p>
 <p>代码实现：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">bool</span> good[MAXN];</span><br><span class="line"><span class="keyword">int</span> deg[MAXN], cnt[MAXN];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="built_in">memset</span> (good, <span class="number">1</span>, <span class="keyword">sizeof</span> good);</span><br><span class="line">         <span class="built_in">memset</span> (deg, <span class="number">0</span>, <span class="keyword">sizeof</span> deg);</span><br><span class="line">         <span class="built_in">memset</span> (cnt, <span class="number">0</span>, <span class="keyword">sizeof</span> cnt);</span><br><span class="line"> </span><br><span class="line">         <span class="keyword">long</span> <span class="keyword">long</span> ans_bad = <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">2</span>; i&lt;=n; ++i) &#123;</span><br><span class="line">                 <span class="keyword">if</span> (good[i]) &#123;</span><br><span class="line">                          <span class="keyword">if</span> (deg[i] == <span class="number">0</span>) deg[i] = <span class="number">1</span>;</span><br><span class="line">                          <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; i*j&lt;=n; ++j) &#123;</span><br><span class="line">                                   <span class="keyword">if</span> (j &gt; <span class="number">1</span> &amp;&amp; deg[i] == <span class="number">1</span>)</span><br><span class="line">                                            <span class="keyword">if</span> (j % i == <span class="number">0</span>)</span><br><span class="line">                                                    good[i*j] = <span class="literal">false</span>;</span><br><span class="line">                                            <span class="keyword">else</span></span><br><span class="line">                                                    ++deg[i*j];</span><br><span class="line">                                   cnt[i*j] += (n / i) * (deg[i]%<span class="number">2</span>==<span class="number">1</span> ? +<span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line">                          &#125;</span><br><span class="line">                 &#125;</span><br><span class="line">                 ans_bad += (cnt[i] - <span class="number">1</span>) * <span class="number">1l</span>l * (n - cnt[i] - <span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> (n<span class="number">-1</span>) * <span class="number">1l</span>l * (n<span class="number">-2</span>) * (n<span class="number">-3</span>) / <span class="number">6</span> - ans_bad / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>最终算法的复杂度为 $ O(n\log n) $，因为对于大部分i都要进行$\frac{n}{i}$次枚举。</p>
@@ -548,11 +541,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
               </li>
             
             <div class="clearfix"></div>
@@ -715,7 +708,7 @@ MathJax.Hub.Queue(function() {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>
