@@ -167,7 +167,7 @@
       
         <p>四维DP？！</p>
 <a id="more"></a>
-<h1 id="Blank"><a href="#Blank" class="headerlink" title="Blank"></a>Blank</h1><p>定义 $ dp[i][j][k][t] $ 代表填完前 $ t $ 个位置后， $ {0,1,2,3}\ $ 这4个数字最后一次出现的位置，<br>排序后为 $ i,j,k,t (i&lt;j&lt;k&lt;t) $ 的方案数目，则按照第 $ t+1 $ 位的数字的四种选择，可以得到四种转移。</p>
+<h1 id="Blank"><a href="#Blank" class="headerlink" title="Blank"></a>Blank</h1><p>定义 $ dp[i][j][k][t] $ 代表填完前 $ t $ 个位置后， $ \{0,1,2,3} $ 这4个数字最后一次出现的位置，<br>排序后为 $ i,j,k,t (i&lt;j&lt;k&lt;t) $ 的方案数目，则按照第 $ t+1 $ 位的数字的四种选择，可以得到四种转移。</p>
 <p>对于限制可以按照限制区间的右端点分类，求出 $ dp[i][j][k][t] $ 后，找到所有以 $ t $ 为区间右端点的限制条件，如果当前状态不满足所有限制条件则不合法，不再向后转移。</p>
 <p>总时间复杂度 $ O(n^4) $ 。滚动一维，空间复杂度 $ O(n^3) $ </p>
 <p><strong>UPD</strong>  一开始的模数为$10^9+7$，后来统一改成了$998244353$，但最后在polygon上生成数据的时候标程放错了，就跑出了模$10^9+7$的结果。对被这道题卡了的大佬们表示歉意！</p>
@@ -426,11 +426,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
             
             <div class="clearfix"></div>
@@ -579,5 +579,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 </body>
 </html>

@@ -17,7 +17,7 @@
 <meta property="og:description" content="在前面，逆元相关习题里面初步涉及到了容斥原理；在这里，我们详细的讲一下容斥原理。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/in&out.png?raw=true">
-<meta property="og:updated_time" content="2019-07-29T13:37:35.314Z">
+<meta property="og:updated_time" content="2019-07-29T14:47:11.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" 容斥原理">
 <meta name="twitter:description" content="在前面，逆元相关习题里面初步涉及到了容斥原理；在这里，我们详细的讲一下容斥原理。">
@@ -183,17 +183,12 @@
 <p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/in&amp;out.png?raw=true" alt></p>
 <p>那么的$A \cup B \cup C$面积就是集合A、B、C各自面积之和减去$A \cap B$、$B \cap C$、$C \cap A$的面积，再加上$A \cap B \cap C$的面积。即：</p>
 <script type="math/tex; mode=display">
-S_{A \cup B \cup C}\\  
-=S_{A}+S_{B}+S_{C}\\  
--S_{A \cap B}-S_{B \cap C}-S_{C \cap A}\\
-+S_{A \cap B \cap C}</script><p>\begin{align}<br>f(x) &amp; = (m+n)^2 \<br>&amp; = m^2+2mn+n^2 \<br>\end{align}</p>
-<script type="math/tex; mode=display">
 \begin{align}
-\because\begin{cases}
-\acute{a}x^2+bx^2+c\gtrless0\gtrless\grave{a}x^2+bx^2+c\\
-\acute{a}>0>\grave{a}
-\end{cases}\\
-\therefore\frac{-b\pm\sqrt{b^2-4\acute{a}c}}{2\acute{a}}{}_\lessgtr^\gtrlessx_\lessgtr^\gtrless\frac{-b\pm\sqrt{b^2-4\grave{a}c}}{2\grave{a}}
+S_{A \cup B \cup C}&=S_{A}+S_{B}+S_{C}-S_{A \cap B}-S_{B \cap C}-S_{C \cap A}+S_{A \cap B \cap C}
+\end{align}</script><script type="math/tex; mode=display">
+\begin{align}
+f(x) & = (m+n)^2 \\
+     & = m^2+2mn+n^2 \\
 \end{align}</script><p>由此，我们也可以解决n个集合求并的问题。</p>
 <h3 id="关于概率论的原理"><a href="#关于概率论的原理" class="headerlink" title="关于概率论的原理"></a>关于概率论的原理</h3><p>设事件$A_i(i=1,2,…,n),P(A_i)$代表发生某些事件的概率（即发生其中至少一个事件的概率），则：</p>
 <script type="math/tex; mode=display">P\left( \bigcup_{i=1}^{n} A_i \right) = \sum_{i=1}^{n} P\left( A_i \right) - \sum_{ i,j : 1 \leq i < j \leq n } P\left( A_i \cap A_j \right) + \sum_{ i,j,k : 1 \leq i < j < k \leq n } P\left( A_i \cap A_j \cap A_k \right) + ... + (-1)^{n-1}P\left( A_i \cap ... \cap A_n \right)</script><p>它同样可以写得更简洁一些（将B作为所有Ai的集合）：</p>
@@ -553,11 +548,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
             
             <div class="clearfix"></div>
@@ -706,5 +701,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 </body>
 </html>
