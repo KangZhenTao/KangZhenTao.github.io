@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
   <title>HDOJ_Multi_school Day 2 T11 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="挖坑，有时间就填">
-<meta name="keywords" content="HDOJ_Multi_chool,unsolved">
+  <meta name="description" content="需要的知识：           线段树（Segment Tree）           权值线段树，主席树，           斐波那契数列（Fibonacci sequence）">
+<meta name="keywords" content="HDOJ_Multi_chool,unsolved,undone">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HDOJ_Multi_school Day 2 T11">
 <meta property="og:url" content="https://kangzhentao.github.io/2019/07/28/12.HDOJ-Multi-school-Day-2-T11/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="挖坑，有时间就填">
+<meta property="og:description" content="需要的知识：           线段树（Segment Tree）           权值线段树，主席树，           斐波那契数列（Fibonacci sequence）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T02:23:33.877Z">
+<meta property="og:updated_time" content="2019-07-30T10:05:34.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HDOJ_Multi_school Day 2 T11">
-<meta name="twitter:description" content="挖坑，有时间就填">
+<meta name="twitter:description" content="需要的知识：           线段树（Segment Tree）           权值线段树，主席树，           斐波那契数列（Fibonacci sequence）">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,7 +165,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>挖坑，有时间就填</p>
+        <p>需要的知识：<br>           线段树（Segment Tree）<br>           权值线段树，主席树，<br>           斐波那契数列（Fibonacci sequence）</p>
+<a id="more"></a>
+<h1 id="Keen-On-Everything-But-Triangle"><a href="#Keen-On-Everything-But-Triangle" class="headerlink" title="Keen On Everything But Triangle"></a>Keen On Everything But Triangle</h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>$N$ sticks are arranged in a row, and their lengths are $a_1,a_2,…,a_N$.</p>
+<p>There are $Q$ querys. For $i-th$ of them, you can only use sticks between $l_i-th$ to $r_i-th$. Please output the maximum circumference of all the triangles that you can make with these sticks, or print $−1$ denoting no triangles you can make.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>There are multiple test cases.</p>
+<p>Each case starts with a line containing two positive integers $N,Q( N,Q \leq 10^5)$.</p>
+<p>The second line contains $N$ integers, the $i-th$ integer $a_i(1 \leq a_i \leq 10^9)$ of them showing the length of the $i-th$ stick.</p>
+<p>Then follow $Q $lines. $i-th$ of them contains two integers $l_i,r_i(1 \leq l_i \leq r_i \leq N)$, meaning that you can only use sticks between $l_i-th$ to $r_i-th$.</p>
+<p>It is guaranteed that the sum of $N_s$ and the sum of $Q_s$ in all test cases are both no larger than $4×10^5$.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each test case, output $Q$ lines, each containing an integer denoting the maximum circumference.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>5 3<br>2 5 6 5 2<br>1 3<br>2 4<br>2 5</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>13<br>16<br>16</p>
 
       
 
@@ -184,6 +195,10 @@
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
         		</li>
       		
 		</ul>
@@ -253,6 +268,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2019/07/30/13.Segment Tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          线段树相关
+        
+      </div>
+    </a>
+  
   
     <a href="/2019/07/28/11.HDOJ-Multi-school-Day-2-T10/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">HDOJ_Multi_school Day 2 T10</div>
@@ -282,7 +306,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Keen-On-Everything-But-Triangle"><span class="toc-number">1.</span> <span class="toc-text">Keen On Everything But Triangle</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -427,7 +451,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">undone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">solved</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">done</a>
               </li>
             
             <div class="clearfix"></div>
