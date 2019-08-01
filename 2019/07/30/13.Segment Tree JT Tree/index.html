@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="线段树是一种神奇的数据结构，能将区间数据多次修改与多次求和的复杂度降低,而且它还有升级版">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%201%20.png">
-<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%202%20.png">
-<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%203%20.png">
-<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%204%20.png">
-<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png">
-<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png">
-<meta property="og:updated_time" content="2019-08-01T13:02:59.368Z">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%201%20.png?raw=true">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%202%20.png?raw=true">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%203%20.png?raw=true">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%204%20.png?raw=true">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png?raw=true">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png?raw=true">
+<meta property="og:updated_time" content="2019-08-01T13:07:32.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线段树相关">
 <meta name="twitter:description" content="线段树是一种神奇的数据结构，能将区间数据多次修改与多次求和的复杂度降低,而且它还有升级版">
-<meta name="twitter:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%201%20.png">
+<meta name="twitter:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%201%20.png?raw=true">
   
   
     <link rel="icon" href="/favicon.png">
@@ -175,19 +175,19 @@
         <p>线段树是一种神奇的数据结构，能将区间数据多次修改与多次求和的复杂度降低,而且它还有升级版</p>
 <a id="more"></a>
 <h1 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h1><h2 id="产生背景"><a href="#产生背景" class="headerlink" title="产生背景"></a>产生背景</h2><p>假设我们有$n$个要处理的数据</p>
-<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%201%20.png" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%201%20.png?raw=true" alt></p>
 <p>有两种处理操作方式，一种是单点修改某个数据的值，另一个是对于区间$l ~ r$进行求和。这两种操作都要进行$n$次</p>
-<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%202%20.png" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%202%20.png?raw=true" alt></p>
 <p>对于一系列数字元素存储在数组中，我们想进行多次单点修改操作和多次区间求和操作，一般有两种方法</p>
 <p>一是直接进行模拟操作，每一次单点修改耗费$O(1)$的时间，每一次区间求和耗费$O(n)$的时间。总共时间复杂度为$O(n^2)$</p>
-<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%203%20.png" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%203%20.png?raw=true" alt></p>
 <p>另外一种就是用前缀和进行优化，能够将每次区间求和耗费时间由$O(n)$降低到$O(1)$，但是每次单点修改的耗费时间却变成了$O(n)$,总共时间复杂度为$O(n^2)$</p>
-<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%204%20.png" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%204%20.png?raw=true" alt></p>
 <p>这个时候，线段树要上场了。</p>
 <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>线段树的原理是就是分治区间和，将一个大区间分成两个小区间，两个小区间分成四个小小区间……</p>
-<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png?raw=true" alt></p>
 <p>对于每一个单点修改，只会消耗$\log n$的时间；每一次区间求和，也只用消耗$\log n$的时间</p>
-<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png" alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/Segment%20Tree%205%20.png?raw=true" alt></p>
 <p>这样就大大的优化了时间复杂度</p>
 
       
