@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
   <title>逆元习题 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RNG传送门 题目大意是在长度为  $ 0 $ ~ $ n $  的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上求两段线段相交的概率是多少。">
+  <meta name="description" content="这里是一道逆元的练习题">
 <meta name="keywords" content="done">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆元习题">
 <meta property="og:url" content="https://kangzhentao.github.io/2019/07/26/8.Inverse element Practice/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="RNG传送门 题目大意是在长度为  $ 0 $ ~ $ n $  的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上求两段线段相交的概率是多少。">
+<meta property="og:description" content="这里是一道逆元的练习题">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true">
 <meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_2.png?raw=true">
-<meta property="og:updated_time" content="2019-08-03T00:35:53.439Z">
+<meta property="og:updated_time" content="2019-08-04T07:55:04.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆元习题">
-<meta name="twitter:description" content="RNG传送门 题目大意是在长度为  $ 0 $ ~ $ n $  的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上求两段线段相交的概率是多少。">
+<meta name="twitter:description" content="这里是一道逆元的练习题">
 <meta name="twitter:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true">
   
   
@@ -168,9 +168,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="RNG"><a href="#RNG" class="headerlink" title="RNG"></a>RNG</h2><p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6574" target="_blank" rel="noopener">传送门</a></p>
-<p>题目大意是在长度为  $ 0 $ ~ $ n $  的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上求两段线段相交的概率是多少。</p>
+        <p>这里是一道逆元的练习题</p>
 <a id="more"></a>
+<h2 id="RNG"><a href="#RNG" class="headerlink" title="RNG"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6574" target="_blank" rel="noopener">RNG</a></h2><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Avin is studying how to synthesize data. Given an integer $n$, he constructs an interval using the following method: he first generates a integer $r$ between $1$ and $n$ (both inclusive) uniform-randomly, and then generates another integer $l$ between $1$ and $r$ (both inclusive) uniform-randomly. The interval $ [ l , r ] $ is then constructed. Avin has constructed two intervals using the method above. He asks you what the probability that two intervals intersect is. You should print $p \times  q^{−1} (\% 1, 000, 000, 007)$, while $\frac{p}{q}$ denoting the probability.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Just one line contains the number n (1 ≤ n ≤ 1, 000, 000).</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the answer.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>1<br>2</p>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>1<br>750000006</p>
+<p>题目大意是在长度为  $ 0 $ ~ $ n $  的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上，求两段线段相交的概率是多少。</p>
 <p>首先看到题目可以想到容斥原理：  </p>
 <blockquote>
 <p>相交的概率=1-不相交的概率</p>
@@ -312,7 +317,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RNG"><span class="toc-number">1.</span> <span class="toc-text">RNG</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RNG"><span class="toc-number">1.</span> <span class="toc-text">RNG</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -449,6 +454,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
               </li>
              
@@ -458,10 +467,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">undone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
