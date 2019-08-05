@@ -9,14 +9,14 @@
   <title>JXCPC 1001 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是">
-<meta name="keywords" content="JXCPC,unsolved,undone">
+<meta name="keywords" content="unsolved,undone,JXCPC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JXCPC 1001">
 <meta property="og:url" content="https://kangzhentao.github.io/2019/07/21/2.1 JXCPC 1001/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="这是">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-05T00:17:51.399Z">
+<meta property="og:updated_time" content="2019-08-05T00:57:09.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JXCPC 1001">
 <meta name="twitter:description" content="这是">
@@ -167,7 +167,13 @@
       
         <p>这是</p>
 <a id="more"></a>
-<h1 id="Cotree"><a href="#Cotree" class="headerlink" title="Cotree"></a><a href="http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1001&amp;cid=868" target="_blank" rel="noopener">Cotree</a></h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2>
+<h1 id="Cotree"><a href="#Cotree" class="headerlink" title="Cotree"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6567" target="_blank" rel="noopener">Cotree</a></h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Avin has two trees which are not connected. He asks you to add an edge between them to make them connected while minimizing the function $\sum_{i=1}^{n} \sum_{j=i+1}^{n} dis(i,j)$ , where $dis(i,j)$ represents the number of edges of the path from $i$ to $j$. He is happy with only the function value.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains a number $n (2 \leq n \leq 100000)$.In each of the following $n−2$ lines, there are two numbers $u$ and $v$ , meaning that there is an edge between $u$ and $v$. The input is guaranteed to contain exactly two trees.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Just print the minimum function value.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>3<br>1 2</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>4</p>
+<h2 id="solution"><a href="#solution" class="headerlink" title="solution"></a>solution</h2><p>题目大意是保证给你两棵树，将他们用一条边连接，使得两棵树变成一棵树，使得 function $\sum_{i=1}^{n} \sum_{j=i+1}^{n} dis(i,j)$最小，并求出最小值。（两结点的距离即 i -&gt; j 路径上边的数量）</p>
+
       
 
       
@@ -180,15 +186,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
         		</li>
       		
 		</ul>
@@ -258,11 +264,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/21/2.4 JXCPC 1004/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/21/2.1.1 Tree's Weight Point/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JXCPC 1004
+          树的重心
         
       </div>
     </a>
@@ -296,7 +302,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cotree"><span class="toc-number">1.</span> <span class="toc-text">Cotree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Cotree"><span class="toc-number">1.</span> <span class="toc-text">Cotree</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#solution"><span class="toc-number">1.6.</span> <span class="toc-text">solution</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -439,15 +445,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">done</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
+                <a href="javascript:void(0)" class="js-tag color5">done</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,11 +465,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HDOJ_Multi_chool</a>
+                <a href="javascript:void(0)" class="js-tag color2">solved</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solved</a>
+                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
               </li>
             
             <div class="clearfix"></div>
@@ -612,21 +618,5 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>
