@@ -16,10 +16,12 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="这是一个小知识点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-05T01:44:40.408Z">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/tree's%20heavy%20heart.png?raw=true">
+<meta property="og:updated_time" content="2019-08-05T09:04:35.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="树的重心">
 <meta name="twitter:description" content="这是一个小知识点">
+<meta name="twitter:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/tree's%20heavy%20heart.png?raw=true">
   
   
     <link rel="icon" href="/favicon.png">
@@ -167,14 +169,14 @@
       
         <p>这是一个小知识点</p>
 <a id="more"></a>
-<h1 id="树的重心（质心）"><a href="#树的重心（质心）" class="headerlink" title="树的重心（质心）"></a>树的重心（质心）</h1><p><a href="http://poj.org/problem?id=1655" target="_blank" rel="noopener">http://poj.org/problem?id=1655</a><br><a href="http://poj.org/problem?id=3107" target="_blank" rel="noopener">http://poj.org/problem?id=3107</a></p>
+<h1 id="树的重心（质心）"><a href="#树的重心（质心）" class="headerlink" title="树的重心（质心）"></a>树的重心（质心）</h1><p><a href="http://poj.org/problem?id=1655" target="_blank" rel="noopener">Balancing Act</a><br><a href="http://poj.org/problem?id=3107" target="_blank" rel="noopener">Godfather</a></p>
 <h2 id="概括"><a href="#概括" class="headerlink" title="概括"></a>概括</h2><p>树的重心也叫树的质心。找到一个点将其作为根,把无根树转换为有根树,其所有的子树中最大的子树节点数最少,那么这个点就是这棵树的重心,删去重心后，生成的多棵树尽可能平衡。</p>
 <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>树的重心也叫树的质心。对于一棵树n个节点的无根树，找到一个点，使得把树变成以该点为根的有根树时，最大子树的结点数最小。换句话说，删除这个点后最大连通块（一定是树）的结点数最小。</p>
 <h2 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h2><p>1.树中所有点到某个点的距离和中，到重心的距离和是最小的，如果有两个距离和，他们的距离和一样。<br>2.把两棵树通过一条边相连，新的树的重心在原来两棵树重心的连线上。<br>3.一棵树添加或者删除一个节点，树的重心最多只移动一条边的位置。<br>4.一棵树最多有两个重心，且相邻。</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>先任选一个结点作为根，把无根树变为有根树，然后设$d(i)$表示以$i$为根的子树的结点个数。不难发现$d(i)=\sum_{j \in s(i)} d(j) + 1$。</p>
 <p>程序实现也比较简单，只需要一次DFS，在无根树转为有根树的同时计算即可，连记忆化都不需要————因为本来就没有重复计算。</p>
 <p>那么在删除结点$i$ 之后，最大的连通块有多少个结点呢？结点$i$的子树中最大的有$ max \{ d(j) \}$个结点，$i$的“上方子树”中有$n-d(i)$个结点，如图。这样，在动态规划的过程中就可以顺便找出树的重心了。</p>
-<p><img src alt></p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/tree&#39;s%20heavy%20heart.png?raw=true" alt></p>
 
       
 
@@ -247,18 +249,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/21/2.4 JXCPC 1004/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/07/21/2.1 JXCPC 1001/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JXCPC 1004
+          JXCPC 1001
         
       </div>
     </a>
   
   
-    <a href="/2019/07/21/2.1 JXCPC 1001/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JXCPC 1001</div>
+    <a href="/2019/07/21/2.Build a blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用Hexo在GitHub上搭建博客</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -424,11 +426,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">continue</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color4">continue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -448,11 +450,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solved</a>
+                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
+                <a href="javascript:void(0)" class="js-tag color2">solved</a>
               </li>
             
             <div class="clearfix"></div>
@@ -601,5 +603,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>
