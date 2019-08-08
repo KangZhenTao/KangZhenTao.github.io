@@ -8,18 +8,21 @@
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
   <title>JXCPC 1008 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是">
-<meta name="keywords" content="unsolved,undone,JXCPC">
+  <meta name="description" content="这是需要概率期望分析+逆元的题目，有点难度">
+<meta name="keywords" content="done,unsolved,JXCPC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JXCPC 1008">
 <meta property="og:url" content="https://kangzhentao.github.io/2019/07/21/2.8 JXCPC 1008/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="这是">
+<meta property="og:description" content="这是需要概率期望分析+逆元的题目，有点难度">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-05T00:18:39.094Z">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true">
+<meta property="og:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_2.png?raw=true">
+<meta property="og:updated_time" content="2019-08-08T03:26:39.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JXCPC 1008">
-<meta name="twitter:description" content="这是">
+<meta name="twitter:description" content="这是需要概率期望分析+逆元的题目，有点难度">
+<meta name="twitter:image" content="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true">
   
   
     <link rel="icon" href="/favicon.png">
@@ -165,9 +168,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是</p>
+        <p>这是需要概率期望分析+逆元的题目，有点难度</p>
 <a id="more"></a>
-<h1 id="RNG"><a href="#RNG" class="headerlink" title="RNG"></a><a href="http://acm.hdu.edu.cn/contests/contest_showproblem.php?pid=1008&amp;cid=868" target="_blank" rel="noopener">RNG</a></h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2>
+<h1 id="RNG"><a href="#RNG" class="headerlink" title="RNG"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6574" target="_blank" rel="noopener">RNG</a></h1><h3 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h3><p>Avin is studying how to synthesize data. Given an integer $n$, he constructs an interval using the following method: he first generates a integer $r$ between $1$ and $n$ (both inclusive) uniform-randomly, and then generates another integer $l$ between $1$ and $r$ (both inclusive) uniform-randomly. The interval $ [ l , r ] $ is then constructed. Avin has constructed two intervals using the method above. He asks you what the probability that two intervals intersect is. You should print $p \times  q^{−1} (\% 1, 000, 000, 007)$, while $\frac{p}{q}$ denoting the probability.</p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>Just one line contains the number $n (1 \leq n \leq 1, 000, 000).$</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>Print the answer.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h3><p>1<br>2</p>
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h3><p>1<br>750000006</p>
+<p>先感谢<a href="https://blog.csdn.net/qq_42671946/article/details/96756347" target="_blank" rel="noopener">hduoj - 6574 Rng【概率】</a></p>
+<p>题目大意是在长度为  $ 0 $ ~ $ n $  的数轴上随机的选择一段，然后再随机选择另外一段（这两段线段的选取完全随机，互不影响），线段的端点只会位于整数点上，求两段线段相交的概率是多少。</p>
+<p>首先看到题目可以想到容斥原理：  </p>
+<blockquote>
+<p>相交的概率=1-不相交的概率</p>
+</blockquote>
+<p>那么现在我们要求的是不相交的概率</p>
+<p>对于一段线段而言，有两个端点——左端点和右端点，假设第一段线段的两个端点是$l_1,r_1$第二段线段的两个端点是$l_2,r_2$</p>
+<p>我们按照题目先选一段再选一段就有两种情况（按照端点分情况）</p>
+<p>第一种就是选取的$r_1$在$r_2$的左边</p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_1.png?raw=true" alt></p>
+<p>则两线段不相交的概率为$\frac{r_2-r_1}{r_2}$</p>
+<p>第二种就是选取的$r_1$在$r_2$的右边</p>
+<p><img src="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/RNG_2.png?raw=true" alt></p>
+<p>则两线段不相交的概率为$\frac{r_1-r_2}{r_1}$</p>
+<p>则在$r_1$固定时，枚举$r_2$可得</p>
+<script type="math/tex; mode=display">\frac{\sum_{r_2 = 1} ^ {r_1} \frac{r_1-r_2}{r_1}+\sum_{r_2 = r_1+1} ^ { n } \frac{r_2-r_1}{r_2}}{n}</script><p>设<script type="math/tex">\frac{\sum_{r_2 = 1} ^ {r_1} \frac{r_1-r_2}{r_1}+\sum_{r_2 = r_1+1} ^ { n } \frac{r_2-r_1}{r_2}}{n}=K</script><br>则$r_1$不固定时，有</p>
+<script type="math/tex; mode=display">\frac{\sum_{r_1=1}^{n} (1-K)}{n}</script><p>化简到最后有</p>
+<script type="math/tex; mode=display">1-\frac{\sum_{r_1=1}^{n} \frac{1+r_1}{2} + \sum_{r_1=1}^{n} r_1 \times \sum_{r_2=r_1+1}^{n} \frac{1}{r_2}}{n^2}</script><p>这是不相交的概率计算，相交的概率为</p>
+<script type="math/tex; mode=display">
+1- ( 
+1-\frac{\sum_{r_1=1}^{n} \frac{1+r_1}{2} + \sum_{r_1=1}^{n} r_1 \times \sum_{r_2=r_1+1}^{n} \frac{1}{r_2}}{n^2} 
+) 
+= 
+\frac{\sum_{r_1=1}^{n} \frac{1+r_1}{2} + \sum_{r_1=1}^{n} r_1 \times \sum_{r_2=r_1+1}^{n} \frac{1}{r_2}}{n^2}</script><p>处理一个后缀和就可以$O(n)$求解了。</p>
+<h2 id="The-Code-Of-My-Program"><a href="#The-Code-Of-My-Program" class="headerlink" title="The Code Of My Program"></a>The Code Of My Program</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">qk</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (n &amp; <span class="number">1</span>)res = res * a % mod;</span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> las[<span class="number">1004</span>];</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        las[i] = qk(i, mod - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">1</span>; --i) &#123;</span><br><span class="line">        las[i] = (las[i] + las[i + <span class="number">1</span>]) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">0</span>;</span><br><span class="line">    las[n + <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">        ans = (ans + (<span class="number">1</span> + i) * qk(<span class="number">2</span>, mod - <span class="number">2</span>) % mod) % mod;</span><br><span class="line">        ans = (ans + i * (las[i + <span class="number">1</span>]) % mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; ans * qk(n, mod - 2) % mod * qk(n, mod - 2) % mod &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>P.S.  最后有人<del>~推出</del>~（或者猜出）究极公式是$\frac{n+1}{2n}$</p>
+<p>那么放一下YJW的代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">ksm</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> a, <span class="keyword">long</span> <span class="keyword">long</span> b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">			ans = (ans * a) % mod;</span><br><span class="line">		b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">		a = (a * a) % mod;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt; n)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt; ((n + <span class="number">1</span>) * ksm(<span class="number">2</span> * n, mod - <span class="number">2</span>)) % mod&lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
 
       
@@ -180,11 +216,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -296,7 +332,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RNG"><span class="toc-number">1.</span> <span class="toc-text">RNG</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RNG"><span class="toc-number">1.</span> <span class="toc-text">RNG</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.0.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Input"><span class="toc-number">1.0.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Output"><span class="toc-number">1.0.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.0.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.0.5.</span> <span class="toc-text">Sample Output</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Code-Of-My-Program"><span class="toc-number">1.1.</span> <span class="toc-text">The Code Of My Program</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -439,11 +475,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color5">done</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">done</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
