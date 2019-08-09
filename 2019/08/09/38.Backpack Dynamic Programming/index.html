@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>Tag: solved | ChenShouのBlog</title>
+  <title>背包型动态规划 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+  <meta name="description" content="这里是关于背包型动态规划的题目以及程序">
 <meta name="keywords" content="学生,ACMer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenShouのBlog">
-<meta property="og:url" content="https://kangzhentao.github.io/tags/solved/page/2/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="背包型动态规划">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/09/38.Backpack Dynamic Programming/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta property="og:description" content="这里是关于背包型动态规划的题目以及程序">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-09T08:37:37.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenShouのBlog">
-<meta name="twitter:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta name="twitter:title" content="背包型动态规划">
+<meta name="twitter:description" content="这里是关于背包型动态规划的题目以及程序">
   
   
     <link rel="icon" href="/favicon.png">
@@ -144,71 +145,168 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-38.Backpack Dynamic Programming" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/21/2.4 JXCPC 1004/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/21/2.4 JXCPC 1004/">JXCPC 1004</a>
+    <h1 class="article-title" itemprop="name">
+      背包型动态规划
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2019/08/09/38.Backpack Dynamic Programming/" class="archive-article-date">
+  	<time datetime="2019-08-09T06:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>﻿<br>这里是关于背包型动态规划的题目以及程序</p>
+<a id="more"></a>
+<h1 id="背包型动态规划"><a href="#背包型动态规划" class="headerlink" title="背包型动态规划"></a>背包型动态规划</h1><h2 id="装箱问题"><a href="#装箱问题" class="headerlink" title="装箱问题"></a><a href="http://codevs.cn/problem/1014/" target="_blank" rel="noopener">装箱问题</a></h2><h3 id="题目描述-Description"><a href="#题目描述-Description" class="headerlink" title="题目描述 Description"></a>题目描述 Description</h3><p>有一个箱子容量为 $V$（正整数，$ 0 \leq V \leq 20000$），同时有$n$个物品（$0 &lt; n \leq 30$），每个物品有一个体积（正整数）。</p>
+<p>要求$n$个物品中，任取若干个装入箱内，使箱子的剩余空间为最小。</p>
+<h3 id="输入描述-Input-Description"><a href="#输入描述-Input-Description" class="headerlink" title="输入描述 Input Description"></a>输入描述 Input Description</h3><p>一个整数$v$，表示箱子容量<br>一个整数$n$，表示有n个物品<br>接下来$n$个整数，分别表示这$n$ 个物品的各自体积</p>
+<h3 id="输出描述-Output-Description"><a href="#输出描述-Output-Description" class="headerlink" title="输出描述 Output Description"></a>输出描述 Output Description</h3><p>一个整数，表示箱子剩余空间。</p>
+<h3 id="样例输入-Sample-Input"><a href="#样例输入-Sample-Input" class="headerlink" title="样例输入 Sample Input"></a>样例输入 Sample Input</h3><p>24<br>6<br>8<br>3<br>12<br>7<br>9<br>7</p>
+<h3 id="样例输出-Sample-Output"><a href="#样例输出-Sample-Output" class="headerlink" title="样例输出 Sample Output"></a>样例输出 Sample Output</h3><p>0</p>
+<h3 id="数据范围及提示-Data-Size-amp-Hint"><a href="#数据范围及提示-Data-Size-amp-Hint" class="headerlink" title="数据范围及提示 Data Size &amp; Hint"></a>数据范围及提示 Data Size &amp; Hint</h3><p>无</p>
+<h3 id="The-Code-Of-My-Program"><a href="#The-Code-Of-My-Program" class="headerlink" title="The Code Of My Program"></a>The Code Of My Program</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou *</span></span><br><span class="line"><span class="comment">*@Language: C++11    *</span></span><br><span class="line"><span class="comment">*********************/</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt; </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;scoreeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">"\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//typedef __int128 lll;</span></span><br><span class="line"><span class="comment">//const int N=100000+10;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EXP = <span class="number">1E-9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line">ll a[<span class="number">31</span>], dp[<span class="number">20001</span>]=&#123;<span class="number">0</span>&#125;;  <span class="comment">//容量为0到20001的货车能取的最大体积的货物</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)</span><br><span class="line">            f=<span class="number">-1</span>;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    freopen(<span class="string">"input.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="comment">//freopen("output.out", "w", stdout);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout.tie(0);</span></span><br><span class="line">    <span class="comment">//scanf("%d",&amp;t);</span></span><br><span class="line">    <span class="comment">//while(t--)&#123;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    ll v,n;  </span><br><span class="line">    v=read();</span><br><span class="line">    n=read(); </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;n; i++) </span><br><span class="line">    &#123;  </span><br><span class="line">        a[i]=read();  </span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=v; j&gt;=a[i]; j--)<span class="comment">//容积从a[i]到v的货车都可以选择取或不取第i个货，每个货车都进行一次判断</span></span><br><span class="line">              dp[j]<span class="comment">//目前决策下容积为j的火车能取的最多的货</span></span><br><span class="line">                = max(dp[j]<span class="comment">//目前决策下容积为j的火车在选择取a[i]前，能取的最多的货</span></span><br><span class="line">                            , dp[j-a[i]]+a[i]);<span class="comment">//容积为j-a[i]的货车能取的最多的货+a[i]的货占用的体积 </span></span><br><span class="line">      <span class="comment">//这种方法可以保证每次得到的最大体积都不超过容积j</span></span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">   <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,v-dp[v]);<span class="comment">//剩余体积为v能取的最大体积的货 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Time cost : %lf s\n"</span>,(<span class="keyword">double</span>)clock()/CLOCKS_PER_SEC);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; "Fuck You !" &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="乌龟棋"><a href="#乌龟棋" class="headerlink" title="乌龟棋"></a><a href="http://codevs.cn/problem/1068/" target="_blank" rel="noopener">乌龟棋</a></h2><h3 id="题目描述-Description-1"><a href="#题目描述-Description-1" class="headerlink" title="题目描述 Description"></a>题目描述 Description</h3><p>小明过生日的时候，爸爸送给他一副乌龟棋当作礼物。 乌龟棋的棋盘是一行N个格子。$1 \; 2 \; 3 …… N-1 \; N$ ，每个格子上一个分数（非负整数）。棋盘第$1$格是唯一 的起点，第$N$格是终点。</p>
+<p>游戏要求玩家控制一个乌龟棋子从起点出发走到终点。乌龟棋中$M$张爬行卡片，分成$4$种不同的类型（$M$张卡片中不一定包含所有$4$种类型的卡片，见样例），每种类型的卡片上分别标有$1、2、3、4$四个数字之一，表示使用这种卡片后，乌龟棋子将向前爬行相应的格子数。游戏中，玩家每次需要从所有的爬行卡片中选择 一张之前没有使用过的爬行卡片，控制乌龟棋子前进相应的格子数，每张卡片只能使用一次。</p>
+<p>游戏中，乌龟棋子自动获得起点格子的分数，并且在后续的爬行中每到达一个格子，就得到该格子相应的分数。玩家最终游戏得分就是乌龟棋子从起点到终点过程中到过的所有格子的分数总和。很明显，用不同的爬行卡片使用顺序会使得最终游戏的得分不同，小明想要找到一种卡片使用顺序使得最终游戏得分最多。 </p>
+<p>现在，告诉你棋盘上每个格子的分数和所有的爬行卡片，你能告诉小明，他最多能得到多少分吗？</p>
+<h3 id="输入描述-Input-Description-1"><a href="#输入描述-Input-Description-1" class="headerlink" title="输入描述 Input Description"></a>输入描述 Input Description</h3><p>输入的每行中两个数之间用一个空格隔开。 第$1$行$2$个正整数$N$和$M$，分别表示棋盘格子数和爬行卡片数。 第$2$行$N$个非负整数，$a_1 \; a_2 \; …… \; a_N$，其中$a_i$表示棋盘第$i$个格子上的分数。 第$3$行$M$个整数，$b_1 \; b_2 \; …… \; b_M $，表示$M$张爬行卡片上的数字。 输入数据保证到达终点时刚好用光$M$张爬行卡片，即$ N - 1 = \sum_{i=1}^{M} b_i$</p>
+<h3 id="输出描述-Output-Description-1"><a href="#输出描述-Output-Description-1" class="headerlink" title="输出描述 Output Description"></a>输出描述 Output Description</h3><p>输出一行一个整数</p>
+<h3 id="样例输入-Sample-Input-1"><a href="#样例输入-Sample-Input-1" class="headerlink" title="样例输入 Sample Input"></a>样例输入 Sample Input</h3><p>13 8<br>4 96 10 64 55 13 94 53 5 24 89 8 30<br>1 1 1 1 1 2 4 1</p>
+<h3 id="样例输入-Sample-Input-2"><a href="#样例输入-Sample-Input-2" class="headerlink" title="样例输入 Sample Input"></a>样例输入 Sample Input</h3><p>455</p>
+<h3 id="数据范围及提示-Data-Size-amp-Hint-1"><a href="#数据范围及提示-Data-Size-amp-Hint-1" class="headerlink" title="数据范围及提示 Data Size &amp; Hint"></a>数据范围及提示 Data Size &amp; Hint</h3><p>对于$30%$的数据有$1  \leq  N \leq  30，1  \leq M \leq  12$。</p>
+<p>对于$50%$的数据有$1  \leq  N \leq  120，1  \leq M \leq  50$，且 $4$ 种爬行卡片，每种卡片的张数不会超过$20$。</p>
+<p>对于$100%$的数据有$1  \leq  N \leq  350，1  \leq M \leq  120$，且 $4$ 种爬行卡片，每种卡片的张数不会超过$40$；</p>
+<p>$0  \leq  ai  \leq  100，1  \leq  i  \leq  N，1  \leq  bi  \leq  4，1  \leq  i  \leq M$。输入数据保证$ N - 1 = \sum_{i=1}^{M} b_i$</p>
+<h3 id><a href="#" class="headerlink" title=" "></a> </h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou *</span></span><br><span class="line"><span class="comment">*@Language: C++11    *</span></span><br><span class="line"><span class="comment">*********************/</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt; </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;scoreeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">"\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//typedef __int128 lll;</span></span><br><span class="line"><span class="comment">//const int N=100000+10;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EXP = <span class="number">1E-9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">350</span>+<span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[maxn],d[<span class="number">45</span>][<span class="number">45</span>][<span class="number">45</span>][<span class="number">45</span>],b[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)</span><br><span class="line">            f=<span class="number">-1</span>;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    freopen(<span class="string">"input.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="comment">//freopen("output.out", "w", stdout);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout.tie(0);</span></span><br><span class="line">    <span class="comment">//scanf("%d",&amp;t);</span></span><br><span class="line">    <span class="comment">//while(t--)&#123;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    n=read();</span><br><span class="line">    m=read();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) a[i]=read();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> p;</span><br><span class="line">        p=read();</span><br><span class="line">        b[p]++;</span><br><span class="line">    &#125;</span><br><span class="line">    d[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>]=a[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=b[<span class="number">1</span>];i++)</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=b[<span class="number">2</span>];j++)</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=b[<span class="number">3</span>];k++)</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> l=<span class="number">0</span>;l&lt;=b[<span class="number">4</span>];l++)</span><br><span class="line">       &#123;</span><br><span class="line">        <span class="keyword">int</span> score=a[<span class="number">1</span>+i+<span class="number">2</span>*j+<span class="number">3</span>*k+<span class="number">4</span>*l];</span><br><span class="line">        <span class="keyword">if</span>(i) d[i][j][k][l]=max(d[i][j][k][l],d[i<span class="number">-1</span>][j][k][l]+score);</span><br><span class="line">        <span class="keyword">if</span>(j) d[i][j][k][l]=max(d[i][j][k][l],d[i][j<span class="number">-1</span>][k][l]+score);</span><br><span class="line">        <span class="keyword">if</span>(k) d[i][j][k][l]=max(d[i][j][k][l],d[i][j][k<span class="number">-1</span>][l]+score);</span><br><span class="line">        <span class="keyword">if</span>(l) d[i][j][k][l]=max(d[i][j][k][l],d[i][j][k][l<span class="number">-1</span>]+score);</span><br><span class="line">       &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,d[b[<span class="number">1</span>]][b[<span class="number">2</span>]][b[<span class="number">3</span>]][b[<span class="number">4</span>]]);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Time cost : %lf s\n"</span>,(<span class="keyword">double</span>)clock()/CLOCKS_PER_SEC);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; "Fuck You !" &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
 
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/09/38.Backpack Dynamic Programming/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/09/36.Struct operator - 副本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Struct &amp; Operator</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背包型动态规划"><span class="toc-number">1.</span> <span class="toc-text">背包型动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#装箱问题"><span class="toc-number">1.1.</span> <span class="toc-text">装箱问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-Description"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目描述 Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入描述-Input-Description"><span class="toc-number">1.1.2.</span> <span class="toc-text">输入描述 Input Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出描述-Output-Description"><span class="toc-number">1.1.3.</span> <span class="toc-text">输出描述 Output Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输入-Sample-Input"><span class="toc-number">1.1.4.</span> <span class="toc-text">样例输入 Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输出-Sample-Output"><span class="toc-number">1.1.5.</span> <span class="toc-text">样例输出 Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据范围及提示-Data-Size-amp-Hint"><span class="toc-number">1.1.6.</span> <span class="toc-text">数据范围及提示 Data Size &amp; Hint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Code-Of-My-Program"><span class="toc-number">1.1.7.</span> <span class="toc-text">The Code Of My Program</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#乌龟棋"><span class="toc-number">1.2.</span> <span class="toc-text">乌龟棋</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-Description-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题目描述 Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入描述-Input-Description-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">输入描述 Input Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出描述-Output-Description-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">输出描述 Output Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输入-Sample-Input-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">样例输入 Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输入-Sample-Input-2"><span class="toc-number">1.2.5.</span> <span class="toc-text">样例输入 Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据范围及提示-Data-Size-amp-Hint-1"><span class="toc-number">1.2.6.</span> <span class="toc-text">数据范围及提示 Data Size &amp; Hint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null"><span class="toc-number">1.2.7.</span> <span class="toc-text"> </span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/solved/">&laquo; Prev</a><a class="page-number" href="/tags/solved/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -238,9 +336,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
