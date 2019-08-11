@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>JXCPC 1011 | ChenShouのBlog</title>
+  <title>关于头文件 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是简单的比赛签到题，类似于A+B Problem 。">
-<meta name="keywords" content="done,solved,JXCPC">
+  <meta name="description" content="在c++程序里面经常见到下面的头文件">
+<meta name="keywords" content="学生,ACMer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JXCPC 1011">
-<meta property="og:url" content="https://kangzhentao.github.io/2019/07/21/2.11 JXCPC 1011/index.html">
+<meta property="og:title" content="关于头文件">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/10/54. include/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="这是简单的比赛签到题，类似于A+B Problem 。">
+<meta property="og:description" content="在c++程序里面经常见到下面的头文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-09T06:22:40.831Z">
+<meta property="og:updated_time" content="2019-08-10T02:32:32.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JXCPC 1011">
-<meta name="twitter:description" content="这是简单的比赛签到题，类似于A+B Problem 。">
+<meta name="twitter:title" content="关于头文件">
+<meta name="twitter:description" content="在c++程序里面经常见到下面的头文件">
   
   
     <link rel="icon" href="/favicon.png">
@@ -145,34 +145,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2.11 JXCPC 1011" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-54. include" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JXCPC 1011
+      关于头文件
     </h1>
   
 
         
-        <a href="/2019/07/21/2.11 JXCPC 1011/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+        <a href="/2019/08/10/54. include/" class="archive-article-date">
+  	<time datetime="2019-08-10T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是简单的比赛签到题，类似于A+B Problem 。</p>
+        <p>在c++程序里面经常见到下面的头文件</p>
 <a id="more"></a>
-<h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6577" target="_blank" rel="noopener">Class</a></h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Avin has two integers $a, b (1 \leq a, b \leq 1, 000)$.<br>Given $x = a + b$ and $y = a - b$, can you calculate $a * b$?</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains two integers $x, y$.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the result of $a * b$.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>4 2</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>3</p>
-<h3 id="program"><a href="#program" class="headerlink" title="program"></a>program</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou</span></span><br><span class="line"><span class="comment">*@Language: C++</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">"\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//typedef __int128 lll;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EXP = <span class="number">1E-9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    freopen(<span class="string">"input.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="comment">//freopen("output.out", "w", stdout);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="comment">//cin.tie(0);</span></span><br><span class="line">    <span class="comment">//cout.tie(0);</span></span><br><span class="line">    <span class="comment">//scanf("%d",&amp;t);</span></span><br><span class="line">    <span class="comment">//while(t--)&#123;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    ll x , y ;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld %lld"</span>,&amp;x,&amp;y)!=EOF)</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;(x*x-y*y)/<span class="number">4</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Time cost : %lf s\n"</span>,(<span class="keyword">double</span>)clock()/CLOCKS_PER_SEC);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; "Hello world!" &lt;&lt; endl;</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="iomanip"><a href="#iomanip" class="headerlink" title="iomanip"></a>iomanip</h1><p>io代表输入输出，manip是manipulator（操纵器）的缩写(在c++上只能通过输入缩写才有效。）<br>iomanip的作用:<br>主要是对cin,cout之类的一些操纵运算子，比如setfill,setw,setbase,setprecision等等。它是I/O流控制头文件,就像C里面的格式化输出一样.以下是一些常见的控制函数的:<br>dec 置基数为10 相当于”%d”<br>hex 置基数为16 相当于”%X”<br>oct 置基数为8 相当于”%o”<br>setfill( ‘c’ ) 设填充字符为c<br>setprecision( n ) 设显示小数精度为n位<br>setw( n ) 设域宽为n个字符<br>这个控制符的意思是保证输出宽度为n。如：<br>cout &lt; &lt;  setw( 3 ) &lt; &lt;  1 &lt; &lt;  setw( 3 ) &lt; &lt;  10 &lt; &lt;  setw( 3 ) &lt; &lt;  100 &lt; &lt;  endl; 输出结果为<br>1 10100 （默认是右对齐）当输出长度大于3时(&lt; &lt; 1000)，setw(3)不起作用。<br>▲setw(n)用法： 通俗地讲就是预设宽度<br>如 cout &lt; &lt; setw(5)&lt; &lt; 255 &lt; &lt; endl;<br>结果是:<br>(空格)(空格)255<br>▲setfill(char c) 用法 : 就是在预设宽度中如果已存在没用完的宽度大小，则用设置的字符c填充<br>如 cout&lt; &lt; setfill(‘@‘)&lt; &lt; setw(5)&lt; &lt; 255&lt; &lt; endl;<br>结果是:<br>@@255<br>▲setbase(int n) : 将数字转换为 n 进制.<br>如 cout&lt; &lt; setbase(8)&lt; &lt; setw(5)&lt; &lt; 255&lt; &lt; endl;<br>cout&lt; &lt; setbase(10)&lt; &lt; setw(5)&lt; &lt; 255&lt; &lt; endl;<br>cout&lt; &lt; setbase(16)&lt; &lt; 255&lt; &lt; endl;<br>结果是:<br>(空格)(空格)377<br>(空格)(空格) 255<br>(空格)(空格)(空格) f f<br>▲ setprecision用法<br>使用setprecision(n)可控制输出流显示浮点数的数字个数。C++默认的流输出数值有效位是6。<br>如果setprecision(n)与setiosflags(ios::fixed)合用，可以控制小数点右边的数字个数。setiosflags(ios::fixed)是用定点方式表示实数。<br>如果与setiosflags(ios::scientific)合用， 可以控制指数表示法的小数位数。setiosflags(ios::scientific)是用指数方式表示实数。<br>setiosflags(ios::fixed) 固定的浮点显示<br>setiosflags(ios::scientific) 指数表示<br>setiosflags(ios::left) 左对齐<br>setiosflags(ios::right) 右对齐<br>setiosflags(ios::skipws) 忽略前导空白<br>setiosflags(ios::uppercase) 16进制数大写输出<br>setiosflags(ios::lowercase) 16进制小写输出<br>setiosflags(ios::showpoint) 强制显示小数点<br>setiosflags(ios::showpos) 强制显示符号<br>举例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream.h&gt;</span></span></span><br><span class="line">　　<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip.h&gt;</span></span></span><br><span class="line">　　<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">　　<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; <span class="number">12345.0</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"12345"</span></span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; setiosflags(ios::fixed)&lt; &lt; setprecision(<span class="number">3</span>)&lt; &lt; <span class="number">1.2345</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"1.235"（应该输出"1.235",而不是"1.234".因为要遵循4舍5入的原则）</span></span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; setiosflags(ios::scientific)&lt; &lt; <span class="number">12345.0</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"1.234500e+004 "</span></span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; setprecision(<span class="number">3</span>)&lt; &lt; <span class="number">12345.0</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"1.23e+004 "</span></span><br><span class="line">　　    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -180,25 +176,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -249,7 +226,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/07/21/2.11 JXCPC 1011/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/10/54. include/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +240,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/10/52.Network-flow/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          杭电多校Day1 T1官方题解
+          网络流相关
         
       </div>
     </a>
   
   
-    <a href="/2019/07/21/2.10 JXCPC 1010/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JXCPC 1010</div>
+    <a href="/2019/08/09/44.Checkerboard Dynamic Programming/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">棋盘型动态规划</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -301,7 +278,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Class"><span class="toc-number">1.</span> <span class="toc-text">Class</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#program"><span class="toc-number">1.5.1.</span> <span class="toc-text">program</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iomanip"><span class="toc-number">1.</span> <span class="toc-text">iomanip</span></a></li></ol>
                     </div>
                 </span>
             </div>
