@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>ChenShouのBlog</title>
+  <title>网络流相关 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
-<meta name="keywords" content="学生,ACMer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenShouのBlog">
-<meta property="og:url" content="https://kangzhentao.github.io/page/4/index.html">
+  <meta name="description" content="这是关于网络流的一些小知识点">
+<meta name="keywords" content="undone">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络流相关">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/10/44.Network-flow/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta property="og:description" content="这是关于网络流的一些小知识点">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T03:33:54.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenShouのBlog">
-<meta name="twitter:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta name="twitter:title" content="网络流相关">
+<meta name="twitter:description" content="这是关于网络流的一些小知识点">
   
   
     <link rel="icon" href="/favicon.png">
@@ -144,30 +145,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-8.About_GCD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-44.Network-flow" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/8.About_GCD/">关于GCD</a>
+    <h1 class="article-title" itemprop="name">
+      网络流相关
     </h1>
   
 
         
-        <a href="/2019/07/23/8.About_GCD/" class="archive-article-date">
-  	<time datetime="2019-07-23T11:28:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/08/10/44.Network-flow/" class="archive-article-date">
+  	<time datetime="2019-08-10T03:01:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>GCD作为缩写意义有多种。它通常表示多核编程的解决方法，也有最大公约数（greatest common divisor，简写为gcd；或highest common factor，简写为hcf），此外它还是共产党的拼音缩写和游戏《鬼吹灯外传》的拼音缩写和“创意群总监”的英文缩写。在这里我讲一下GCD作为最大公约数（greatest common divisor，简写为gcd；或highest common factor，简写为hcf）时的一些计算方法。</p>
-        
+        <p>这是关于网络流的一些小知识点</p>
+<a id="more"></a>
+<h1 id="网络流问题"><a href="#网络流问题" class="headerlink" title="网络流问题"></a>网络流问题</h1><h2 id="相关概念："><a href="#相关概念：" class="headerlink" title="相关概念："></a>相关概念：</h2><blockquote>
+<p>源点：有n个点，有m条有向边，有一个点很特殊，只出不进，叫做源点。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>汇点：另一个点也很特殊，只进不出，叫做汇点。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>容量和流量：每条有向边上有两个量，容量和流量，从i到j的容量通常用c[i,j]表示,流量则通常是f[i,j]。</p>
+<p>最大流：通俗点解释，就好比你有很多货物要从源点点运到汇点点，有向图中的一条边代表一条公路，每条公路有固定的货物装载限制（容量），对每条公路你只能运输一定数量的货物，问你每一次运输最多运到汇点点多少货物。<br>给定指定的一个有向图,其中有两个特殊的源点S和汇点T,每条边有指定的容量,求满足条件的从S到T的最大流。</p>
+</blockquote>
+<h2 id="网络流的性质"><a href="#网络流的性质" class="headerlink" title="网络流的性质"></a>网络流的性质</h2><blockquote>
+<p>容量限制：f[u,v]&lt;=c[u,v]</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>反对称性：f[u,v] = - f[v,u]</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>流量平衡：对于不是源点也不是汇点的任意结点,流入该结点的流量和等于流出该结点的流量和。</p>
+</blockquote>
+<h2 id="残量网络，容量网络，流量网络"><a href="#残量网络，容量网络，流量网络" class="headerlink" title="残量网络，容量网络，流量网络"></a>残量网络，容量网络，流量网络</h2><blockquote>
+<p>残量网络=容量网络-流量网络</p>
+</blockquote>
+<h2 id="增广路"><a href="#增广路" class="headerlink" title="增广路"></a>增广路</h2><p>增广路: 设 f 是一个容量网络 G 中的一个可行流, P 是从 Vs 到 Vt 的一条链, 若 P 满足下列条件:</p>
+<blockquote>
+<p>在 P 的所有前向弧 <u, v> 上, , 即 P+ 中每一条弧都是非饱和弧;</u,></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在 P 的所有后向弧 <u, v> 上, , 即 P– 中每一条弧是非零流弧。</u,></p>
+</blockquote>
+<p>则称 P 为关于可行流 f 的一条增广路, 简称为 增广路(或称为增广链、可改进路)。沿着增广路改进可行流的操作称为增广</p>
+<h2 id="最小割最大流定理"><a href="#最小割最大流定理" class="headerlink" title="最小割最大流定理"></a>最小割最大流定理</h2><h3 id="割，割集"><a href="#割，割集" class="headerlink" title="割，割集"></a>割，割集</h3><p>对于一张流量图G，断开一些边后，源点s和汇点t就不在连通，我们将这样的k条边的权值（即最大容量）和求和，求和后的值称为割。显然，对于一张流量图G，割有很多个且不尽相同。我们要求的就是所有割中权值最小的那一个（可能不唯一），即花最小的代价使s和t不在同一集合中。</p>
+<h3 id="最小割最大流定理-1"><a href="#最小割最大流定理-1" class="headerlink" title="最小割最大流定理"></a>最小割最大流定理</h3><blockquote>
+<p>任意一个流都小于等于任意一个割</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>构造出一个流等于一个割</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>在一张流量图G中，最大流=最小割。</p>
+</blockquote>
+<h1 id="网络流问题解决方法"><a href="#网络流问题解决方法" class="headerlink" title="网络流问题解决方法"></a>网络流问题解决方法</h1><h2 id="FF-方法-Ford-Fulkerson"><a href="#FF-方法-Ford-Fulkerson" class="headerlink" title="FF 方法 (Ford-Fulkerson)"></a>FF 方法 (Ford-Fulkerson)</h2><h3 id="算法一：EK算法（EdmondsKarp）"><a href="#算法一：EK算法（EdmondsKarp）" class="headerlink" title="算法一：EK算法（EdmondsKarp）"></a>算法一：EK算法（EdmondsKarp）</h3><h3 id="算法二：Dinic算法"><a href="#算法二：Dinic算法" class="headerlink" title="算法二：Dinic算法"></a>算法二：Dinic算法</h3><h3 id="算法三：ISAP-Improved-Shortest-Augumenting-Path"><a href="#算法三：ISAP-Improved-Shortest-Augumenting-Path" class="headerlink" title="算法三：ISAP(Improved Shortest Augumenting Path)"></a>算法三：ISAP(Improved Shortest Augumenting Path)</h3><h3 id="算法四：最高标号预流推进-HLPP"><a href="#算法四：最高标号预流推进-HLPP" class="headerlink" title="算法四：最高标号预流推进(HLPP)"></a>算法四：最高标号预流推进(HLPP)</h3>
       
 
       
@@ -179,88 +226,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/8.About_GCD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-6.HDOJ-Multi-school-Day-1-T5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/6.HDOJ-Multi-school-Day-1-T5/">杭电多校Day1 T5官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/6.HDOJ-Multi-school-Day-1-T5/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最大流最小割签到？！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
         		</li>
@@ -271,16 +236,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/6.HDOJ-Multi-school-Day-1-T5/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/10/44.Network-flow/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/11/50.My-Standard-Begin/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          My Standard Begin
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/10/42. include/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于头文件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -295,509 +328,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-5.HDOJ-Multi-school-Day-1-T4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/5.HDOJ-Multi-school-Day-1-T4/">杭电多校Day1 T4官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/5.HDOJ-Multi-school-Day-1-T4/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<h1 id="Vacation"><a href="#Vacation" class="headerlink" title="Vacation"></a>Vacation</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/5.HDOJ-Multi-school-Day-1-T4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#网络流问题"><span class="toc-number">1.</span> <span class="toc-text">网络流问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#相关概念："><span class="toc-number">1.1.</span> <span class="toc-text">相关概念：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络流的性质"><span class="toc-number">1.2.</span> <span class="toc-text">网络流的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#残量网络，容量网络，流量网络"><span class="toc-number">1.3.</span> <span class="toc-text">残量网络，容量网络，流量网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#增广路"><span class="toc-number">1.4.</span> <span class="toc-text">增广路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小割最大流定理"><span class="toc-number">1.5.</span> <span class="toc-text">最小割最大流定理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#割，割集"><span class="toc-number">1.5.1.</span> <span class="toc-text">割，割集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最小割最大流定理-1"><span class="toc-number">1.5.2.</span> <span class="toc-text">最小割最大流定理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络流问题解决方法"><span class="toc-number">2.</span> <span class="toc-text">网络流问题解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FF-方法-Ford-Fulkerson"><span class="toc-number">2.1.</span> <span class="toc-text">FF 方法 (Ford-Fulkerson)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#算法一：EK算法（EdmondsKarp）"><span class="toc-number">2.1.1.</span> <span class="toc-text">算法一：EK算法（EdmondsKarp）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法二：Dinic算法"><span class="toc-number">2.1.2.</span> <span class="toc-text">算法二：Dinic算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法三：ISAP-Improved-Shortest-Augumenting-Path"><span class="toc-number">2.1.3.</span> <span class="toc-text">算法三：ISAP(Improved Shortest Augumenting Path)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#算法四：最高标号预流推进-HLPP"><span class="toc-number">2.1.4.</span> <span class="toc-text">算法四：最高标号预流推进(HLPP)</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-4.HDOJ-Multi-school-Day-1-T2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/4.HDOJ-Multi-school-Day-1-T2/">杭电多校Day1 T2官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/4.HDOJ-Multi-school-Day-1-T2/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/4.HDOJ-Multi-school-Day-1-T2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.HDOJ-Multi-school-Day-1-T1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/">杭电多校Day1 T1官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>四维DP？！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.11 JXCPC 1011" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/2.11 JXCPC 1011/">JXCPC 1011</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/2.11 JXCPC 1011/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是简单的比赛签到题，类似于A+B Problem 。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/2.11 JXCPC 1011/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.10 JXCPC 1010" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/2.10 JXCPC 1010/">JXCPC 1010</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/2.10 JXCPC 1010/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是稍微难一点的签到题</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/2.10 JXCPC 1010/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.9 JXCPC 1009" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/2.9 JXCPC 1009/">JXCPC 1009</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/2.9 JXCPC 1009/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是稍微难一点的签到题</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/2.9 JXCPC 1009/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -826,8 +382,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>ChenShouのBlog</title>
+  <title>关于头文件 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+  <meta name="description" content="在c++程序里面经常见到下面的头文件">
 <meta name="keywords" content="学生,ACMer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenShouのBlog">
-<meta property="og:url" content="https://kangzhentao.github.io/page/4/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于头文件">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/10/42. include/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta property="og:description" content="在c++程序里面经常见到下面的头文件">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-10T02:32:32.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenShouのBlog">
-<meta name="twitter:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta name="twitter:title" content="关于头文件">
+<meta name="twitter:description" content="在c++程序里面经常见到下面的头文件">
   
   
     <link rel="icon" href="/favicon.png">
@@ -144,30 +145,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-8.About_GCD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-42. include" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/8.About_GCD/">关于GCD</a>
+    <h1 class="article-title" itemprop="name">
+      关于头文件
     </h1>
   
 
         
-        <a href="/2019/07/23/8.About_GCD/" class="archive-article-date">
-  	<time datetime="2019-07-23T11:28:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
+        <a href="/2019/08/10/42. include/" class="archive-article-date">
+  	<time datetime="2019-08-10T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>GCD作为缩写意义有多种。它通常表示多核编程的解决方法，也有最大公约数（greatest common divisor，简写为gcd；或highest common factor，简写为hcf），此外它还是共产党的拼音缩写和游戏《鬼吹灯外传》的拼音缩写和“创意群总监”的英文缩写。在这里我讲一下GCD作为最大公约数（greatest common divisor，简写为gcd；或highest common factor，简写为hcf）时的一些计算方法。</p>
-        
+        <p>在c++程序里面经常见到下面的头文件</p>
+<a id="more"></a>
+<h1 id="iomanip"><a href="#iomanip" class="headerlink" title="iomanip"></a>iomanip</h1><p>io代表输入输出，manip是manipulator（操纵器）的缩写(在c++上只能通过输入缩写才有效。）<br>iomanip的作用:<br>主要是对cin,cout之类的一些操纵运算子，比如setfill,setw,setbase,setprecision等等。它是I/O流控制头文件,就像C里面的格式化输出一样.以下是一些常见的控制函数的:<br>dec 置基数为10 相当于”%d”<br>hex 置基数为16 相当于”%X”<br>oct 置基数为8 相当于”%o”<br>setfill( ‘c’ ) 设填充字符为c<br>setprecision( n ) 设显示小数精度为n位<br>setw( n ) 设域宽为n个字符<br>这个控制符的意思是保证输出宽度为n。如：<br>cout &lt; &lt;  setw( 3 ) &lt; &lt;  1 &lt; &lt;  setw( 3 ) &lt; &lt;  10 &lt; &lt;  setw( 3 ) &lt; &lt;  100 &lt; &lt;  endl; 输出结果为<br>1 10100 （默认是右对齐）当输出长度大于3时(&lt; &lt; 1000)，setw(3)不起作用。<br>▲setw(n)用法： 通俗地讲就是预设宽度<br>如 cout &lt; &lt; setw(5)&lt; &lt; 255 &lt; &lt; endl;<br>结果是:<br>(空格)(空格)255<br>▲setfill(char c) 用法 : 就是在预设宽度中如果已存在没用完的宽度大小，则用设置的字符c填充<br>如 cout&lt; &lt; setfill(‘@‘)&lt; &lt; setw(5)&lt; &lt; 255&lt; &lt; endl;<br>结果是:<br>@@255<br>▲setbase(int n) : 将数字转换为 n 进制.<br>如 cout&lt; &lt; setbase(8)&lt; &lt; setw(5)&lt; &lt; 255&lt; &lt; endl;<br>cout&lt; &lt; setbase(10)&lt; &lt; setw(5)&lt; &lt; 255&lt; &lt; endl;<br>cout&lt; &lt; setbase(16)&lt; &lt; 255&lt; &lt; endl;<br>结果是:<br>(空格)(空格)377<br>(空格)(空格) 255<br>(空格)(空格)(空格) f f<br>▲ setprecision用法<br>使用setprecision(n)可控制输出流显示浮点数的数字个数。C++默认的流输出数值有效位是6。<br>如果setprecision(n)与setiosflags(ios::fixed)合用，可以控制小数点右边的数字个数。setiosflags(ios::fixed)是用定点方式表示实数。<br>如果与setiosflags(ios::scientific)合用， 可以控制指数表示法的小数位数。setiosflags(ios::scientific)是用指数方式表示实数。<br>setiosflags(ios::fixed) 固定的浮点显示<br>setiosflags(ios::scientific) 指数表示<br>setiosflags(ios::left) 左对齐<br>setiosflags(ios::right) 右对齐<br>setiosflags(ios::skipws) 忽略前导空白<br>setiosflags(ios::uppercase) 16进制数大写输出<br>setiosflags(ios::lowercase) 16进制小写输出<br>setiosflags(ios::showpoint) 强制显示小数点<br>setiosflags(ios::showpos) 强制显示符号<br>举例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream.h&gt;</span></span></span><br><span class="line">　　<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip.h&gt;</span></span></span><br><span class="line">　　<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line">　　<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; <span class="number">12345.0</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"12345"</span></span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; setiosflags(ios::fixed)&lt; &lt; setprecision(<span class="number">3</span>)&lt; &lt; <span class="number">1.2345</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"1.235"（应该输出"1.235",而不是"1.234".因为要遵循4舍5入的原则）</span></span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; setiosflags(ios::scientific)&lt; &lt; <span class="number">12345.0</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"1.234500e+004 "</span></span><br><span class="line">　　    <span class="built_in">cout</span>&lt; &lt; setprecision(<span class="number">3</span>)&lt; &lt; <span class="number">12345.0</span>&lt; &lt; <span class="built_in">endl</span>;<span class="comment">//输出"1.23e+004 "</span></span><br><span class="line">　　    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -175,30 +176,87 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/8.About_GCD/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/10/42. include/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/10/44.Network-flow/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          网络流相关
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/09/46.Interval Dynamic Programming/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">区间型动态规划</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -213,591 +271,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-6.HDOJ-Multi-school-Day-1-T5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/6.HDOJ-Multi-school-Day-1-T5/">杭电多校Day1 T5官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/6.HDOJ-Multi-school-Day-1-T5/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:55:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最大流最小割签到？！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/6.HDOJ-Multi-school-Day-1-T5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iomanip"><span class="toc-number">1.</span> <span class="toc-text">iomanip</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-5.HDOJ-Multi-school-Day-1-T4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/5.HDOJ-Multi-school-Day-1-T4/">杭电多校Day1 T4官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/5.HDOJ-Multi-school-Day-1-T4/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<h1 id="Vacation"><a href="#Vacation" class="headerlink" title="Vacation"></a>Vacation</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/5.HDOJ-Multi-school-Day-1-T4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4.HDOJ-Multi-school-Day-1-T2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/4.HDOJ-Multi-school-Day-1-T2/">杭电多校Day1 T2官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/4.HDOJ-Multi-school-Day-1-T2/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <a id="more"></a>
-<h1 id="Operation"><a href="#Operation" class="headerlink" title="Operation"></a>Operation</h1>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/4.HDOJ-Multi-school-Day-1-T2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.HDOJ-Multi-school-Day-1-T1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/">杭电多校Day1 T1官方题解</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/" class="archive-article-date">
-  	<time datetime="2019-07-22T10:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>四维DP？！</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/22/3.HDOJ-Multi-school-Day-1-T1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.11 JXCPC 1011" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/2.11 JXCPC 1011/">JXCPC 1011</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/2.11 JXCPC 1011/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是简单的比赛签到题，类似于A+B Problem 。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/2.11 JXCPC 1011/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.10 JXCPC 1010" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/2.10 JXCPC 1010/">JXCPC 1010</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/2.10 JXCPC 1010/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是稍微难一点的签到题</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/2.10 JXCPC 1010/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.9 JXCPC 1009" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/21/2.9 JXCPC 1009/">JXCPC 1009</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/21/2.9 JXCPC 1009/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是稍微难一点的签到题</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/21/2.9 JXCPC 1009/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -826,8 +325,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
