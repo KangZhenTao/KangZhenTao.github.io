@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="这里是关于区间型动态规划的题目以及程序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-11T08:31:18.359Z">
+<meta property="og:updated_time" content="2019-08-14T08:55:54.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="区间型动态规划">
 <meta name="twitter:description" content="这里是关于区间型动态规划的题目以及程序">
@@ -229,6 +229,7 @@
 <p>f[i][j] = max(a[i]  + 2 * f[i+1][j], a[j] + 2 * f[i][j-1]);//直接计算数的权值<br>f[i][j] = max(a[i]*2^(m-j+i) + f[i+1][j], a[j]*2^(m-j+i) + f[i][j-1])//每次翻倍</p>
 </blockquote>
 <p>第一种，就是先做一个二的幂次方表，直接计算，很好理解。<br>第二种，也是更加方便的一种，只需要每次将小区间乘二即可，应用了乘法分配律的原理。进行完整个区间后，区间长度小乘的次数就多，最后的效果也是二的幂次方。应该也不难理解吧</p>
+<p>这里最恶心的是要高精度…..所以我wa了</p>
 <h3 id="The-Code-Of-My-Program-WA代码"><a href="#The-Code-Of-My-Program-WA代码" class="headerlink" title="The Code Of My Program WA代码"></a>The Code Of My Program WA代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//codevs1166 矩阵取数游戏 区间DP+高精 </span></span><br><span class="line"><span class="comment">//copyright by ametake</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">80</span>+<span class="number">5</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxl=<span class="number">32</span>;</span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> a[maxn],f[maxn][maxn],aa[maxn],bb[maxn],ans[maxn];</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m);<span class="comment">//n行m列 </span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[j]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++) f[j][j]=a[j];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m<span class="number">-1</span>;j++)<span class="comment">//区间长度 </span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=m-j;k++)<span class="comment">//起点</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> l=k+j;</span><br><span class="line">                f[k][l] = max(a[k]  + <span class="number">2</span> * f[k+<span class="number">1</span>][l], a[l] + <span class="number">2</span> * f[k][l<span class="number">-1</span>]);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125;</span><br><span class="line">        ans+=<span class="number">2</span>*f[<span class="number">1</span>][m];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -478,15 +479,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">done</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">continue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +503,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solved</a>
+                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
+                <a href="javascript:void(0)" class="js-tag color2">solved</a>
               </li>
             
             <div class="clearfix"></div>
@@ -655,5 +656,21 @@ MathJax.Hub.Queue(function() {
 
 </div>
   </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 </body>
 </html>
