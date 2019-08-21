@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>HDOJ-Multi-school-Day-3-T2 | ChenShouのBlog</title>
+  <title>CodeForce Round 554 Div 2 | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Blow up the city">
-<meta name="keywords" content="HDOJ_Multi_chool,unsolved,undone">
+  <meta name="description" content="这里是关于CodeForce Round 554 Div 2的一些题解">
+<meta name="keywords" content="学生,ACMer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HDOJ-Multi-school-Day-3-T2">
-<meta property="og:url" content="https://kangzhentao.github.io/2019/07/30/23.HDOJ-Multi-school-Day-3-T2/index.html">
+<meta property="og:title" content="CodeForce Round 554 Div 2">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/21/60.CodeForce Round 554 Div 2/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="Blow up the city">
+<meta property="og:description" content="这里是关于CodeForce Round 554 Div 2的一些题解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-09T06:25:37.335Z">
+<meta property="og:updated_time" content="2019-08-21T03:38:30.361Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HDOJ-Multi-school-Day-3-T2">
-<meta name="twitter:description" content="Blow up the city">
+<meta name="twitter:title" content="CodeForce Round 554 Div 2">
+<meta name="twitter:description" content="这里是关于CodeForce Round 554 Div 2的一些题解">
   
   
     <link rel="icon" href="/favicon.png">
@@ -145,28 +145,149 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-23.HDOJ-Multi-school-Day-3-T2" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-60.CodeForce Round 554 Div 2" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HDOJ-Multi-school-Day-3-T2
+      CodeForce Round 554 Div 2
     </h1>
   
 
         
-        <a href="/2019/07/30/23.HDOJ-Multi-school-Day-3-T2/" class="archive-article-date">
-  	<time datetime="2019-07-30T09:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+        <a href="/2019/08/21/60.CodeForce Round 554 Div 2/" class="archive-article-date">
+  	<time datetime="2019-08-21T01:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="Blow-up-the-city"><a href="#Blow-up-the-city" class="headerlink" title="Blow up the city"></a>Blow up the city</h1>
+        <p>这里是关于<a href="https://codeforces.com/contest/1152" target="_blank" rel="noopener">CodeForce Round 554 Div 2</a>的一些题解</p>
+<a id="more"></a>
+<h1 id="A-Neko-Finds-Grapes"><a href="#A-Neko-Finds-Grapes" class="headerlink" title="A. Neko Finds Grapes"></a><a href="https://codeforces.com/contest/1152/problem/A" target="_blank" rel="noopener">A. Neko Finds Grapes</a></h1><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>On a random day, Neko found $n$ treasure chests and $m$ keys. The $i^{th}$ chest has an integer $a_i$ written on it and the $j^{th}$ key has an integer $b_j$ on it. Neko knows those chests contain the powerful mysterious green Grapes, thus Neko wants to open as many treasure chests as possible.</p>
+<p>The $j^{th}$ key can be used to unlock the $i^{th}$ chest if and only if the sum of the key number and the chest number is an odd number. Formally, $a_i+b_j \equiv 1(mod2)$. One key can be used to open at most one chest, and one chest can be opened at most once.</p>
+<p>Find the maximum number of chests Neko can open.</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains integers $n$ and $m$ $(1 \leq n,m \leq 10^5)$ — the number of chests and the number of keys.</p>
+<p>The second line contains $n$ integers $a_1,a_2,…,a_n (1 \leq a_i \leq 10^9)$ — the numbers written on the treasure chests.</p>
+<p>The third line contains $m$ integers $b_1,b_2,…,b_m (1 \leq b_i \leq 10^9)$ — the numbers written on the keys.</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the maximum number of chests you can open.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><blockquote>
+<p>input</p>
+<blockquote>
+<p>5 4<br>9 14 6 2 11<br>8 4 7 20</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>3</p>
+</blockquote>
+<p>input</p>
+<blockquote>
+<p>5 1<br>2 4 6 8 10<br>5</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>1</p>
+</blockquote>
+<p>input</p>
+<blockquote>
+<p>1 4<br>10<br>20 30 40 50</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>0</p>
+</blockquote>
+</blockquote>
+<h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><p>In the first example, one possible way to unlock 3 chests is as follows:</p>
+<p>Use first key to unlock the fifth chest,<br>Use third key to unlock the second chest,<br>Use fourth key to unlock the first chest.<br>In the second example, you can use the only key to unlock any single chest (note that one key can’t be used twice).</p>
+<p>In the third example, no key can unlock the given chest.</p>
+<h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>暴力出奇迹，奇偶配对</p>
+<h2 id="The-Code-Of-My-Program"><a href="#The-Code-Of-My-Program" class="headerlink" title="The Code Of My Program"></a>The Code Of My Program</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou *</span></span><br><span class="line"><span class="comment">*@Language: C++11    *</span></span><br><span class="line"><span class="comment">*********************/</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt; </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,odd_n=<span class="number">0</span>,even_n=<span class="number">0</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">int</span> c,k,odd_m=<span class="number">0</span>,even_m=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;c;</span><br><span class="line">        <span class="keyword">if</span>(c%<span class="number">2</span>)odd_n++;</span><br><span class="line">        <span class="keyword">else</span> even_n++;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;k;</span><br><span class="line">        <span class="keyword">if</span>(k%<span class="number">2</span>)odd_m++;</span><br><span class="line">        <span class="keyword">else</span> even_m++;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;min(odd_n,even_m)+min(odd_m,even_n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="B-Neko-Performs-Cat-Furrier-Transform"><a href="#B-Neko-Performs-Cat-Furrier-Transform" class="headerlink" title="B. Neko Performs Cat Furrier Transform"></a><a href="https://codeforces.com/contest/1152/problem/B" target="_blank" rel="noopener">B. Neko Performs Cat Furrier Transform</a></h1><h2 id="Problem-1"><a href="#Problem-1" class="headerlink" title="Problem"></a>Problem</h2><p>Cat Furrier Transform is a popular algorithm among cat programmers to create longcats. As one of the greatest cat programmers ever exist, Neko wants to utilize this algorithm to create the perfect longcat.</p>
+<p>Assume that we have a cat with a number $x$. A perfect longcat is a cat with a number equal $2^m−1$ for some non-negative integer $m$. For example, the numbers $0, 1, 3, 7, 15$ and so on are suitable for the perfect longcats.</p>
+<p>In the Cat Furrier Transform, the following operations can be performed on $x$:</p>
+<p>(Operation A): you select any non-negative integer $n$ and replace $x$ with $x⊕(2^n−1)$, with $⊕$ being a bitwise $XOR$ operator.<br>(Operation B): replace $x$ with $x+1$.</p>
+<p>The first applied operation must be of type $A$, the second of type $B$, the third of type $A$ again, and so on. Formally, if we number operations from one in the order they are executed, then odd-numbered operations must be of type $A$ and the even-numbered operations must be of type $B$.</p>
+<p>Neko wants to produce perfect longcats at industrial scale, thus for each cat Neko only wants to perform at most 40 operations. Can you help Neko writing a transformation plan?</p>
+<p>Note that it is not required to minimize the number of operations. You just need to use no more than 40 operations.</p>
+<h2 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h2><p>The only line contains a single integer $x (1 \leq x \leq 10^6)$.</p>
+<h2 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h2><p>The first line should contain a single integer $ t (0 \leq t \leq 40) $ — the number of operations to apply.</p>
+<p>Then for each odd-numbered operation print the corresponding number $n_i$ in it. That is, print $\left \lceil \frac{t}{2} \right \rceil$ integers $n_i (0 \leq n_i \leq 30)$, denoting the replacement $x$ with $x⊕(2^{n_i}−1)$ in the corresponding step.</p>
+<p>If there are multiple possible answers, you can print any of them. It is possible to show, that there is at least one answer in the constraints of this problem.</p>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><blockquote>
+<p>input</p>
+<blockquote>
+<p>39</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>4<br>5 3 </p>
+</blockquote>
+<p>input</p>
+<blockquote>
+<p>1</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>0 </p>
+</blockquote>
+<p>input</p>
+<blockquote>
+<p>7</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>0 </p>
+</blockquote>
+</blockquote>
+<h2 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h2><p>In the first test, one of the transforms might be as follows: 39→56→57→62→63. Or more precisely:</p>
+<p>Pick n=5. x is transformed into 39⊕31, or 56.<br>Increase x by 1, changing its value to 57.<br>Pick n=3. x is transformed into 57⊕7, or 62.<br>Increase x by 1, changing its value to 63=26−1.</p>
+<p>In the second and third test, the number already satisfies the goal requirement.</p>
+<h2 id="想法-1"><a href="#想法-1" class="headerlink" title="想法"></a>想法</h2><p>按照题目模拟即可</p>
+<h2 id="The-Code-Of-My-Program-1"><a href="#The-Code-Of-My-Program-1" class="headerlink" title="The Code Of My Program"></a>The Code Of My Program</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou *</span></span><br><span class="line"><span class="comment">*@Language: C++11    *</span></span><br><span class="line"><span class="comment">*********************/</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt; </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> x,xx,op=<span class="number">0</span>,j=<span class="number">0</span>,opp=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> ans[<span class="number">50</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;x;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		xx=x;</span><br><span class="line">		<span class="keyword">int</span> sum=<span class="number">0</span>,man=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;xx!=<span class="number">1</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(xx%<span class="number">2</span>==<span class="number">1</span>)man++;</span><br><span class="line">			xx&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">			sum++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(sum==man)<span class="keyword">break</span>;</span><br><span class="line">		</span><br><span class="line">		xx=x;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;xx!=<span class="number">1</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(xx%<span class="number">2</span>==<span class="number">0</span>)op=i;</span><br><span class="line">			xx&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> er=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=op;i++)er*=<span class="number">2</span>;</span><br><span class="line">		x=x^(er<span class="number">-1</span>);</span><br><span class="line">		opp++;</span><br><span class="line">		ans[j++]=op;</span><br><span class="line">		xx=x;</span><br><span class="line">		man=<span class="number">0</span>;</span><br><span class="line">		sum=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;xx!=<span class="number">1</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(xx%<span class="number">2</span>==<span class="number">1</span>)man++;</span><br><span class="line">			xx&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">			sum++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(sum==man)<span class="keyword">break</span>;</span><br><span class="line">		x=x+<span class="number">1</span>;</span><br><span class="line">		opp++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,opp);</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;j;i++)<span class="built_in">printf</span>(<span class="string">"%d "</span>,ans[i]+<span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="C-Neko-does-Maths"><a href="#C-Neko-does-Maths" class="headerlink" title="C. Neko does Maths"></a><a href="https://codeforces.com/contest/1152/problem/C" target="_blank" rel="noopener">C. Neko does Maths</a></h1><h2 id="Problem-2"><a href="#Problem-2" class="headerlink" title="Problem"></a>Problem</h2><p>Neko loves divisors. During the latest number theory lesson, he got an interesting exercise from his math teacher.</p>
+<p>Neko has two integers $a$ and $b$. His goal is to find a non-negative integer $k$ such that the least common multiple of $a+k$ and $b+k$ is the smallest possible. If there are multiple optimal integers $k$, he needs to choose the smallest one.</p>
+<p>Given his mathematical talent, Neko had no trouble getting Wrong Answer on this problem. Can you help him solve it?</p>
+<h2 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h2><p>The only line contains two integers $a$ and $b (1 \leq a,b \leq 109)$.</p>
+<h2 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h2><p>Print the smallest non-negative integer $k (k \leq 0)$ such that the lowest common multiple of $a+k$ and $b+k$ is the smallest possible.</p>
+<p>If there are many possible integers $k$ giving the same value of the least common multiple, print the smallest one.</p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><blockquote>
+<p>input</p>
+<blockquote>
+<p>6 10</p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>2</p>
+</blockquote>
+<p>input</p>
+<blockquote>
+<p>21 31 </p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>9</p>
+</blockquote>
+<p>input</p>
+<blockquote>
+<p>5 10 </p>
+</blockquote>
+<p>output</p>
+<blockquote>
+<p>0</p>
+</blockquote>
+</blockquote>
+<h2 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h2><p>In the first test, one should choose $k=2$, as the least common multiple of $6+2$ and $10+2$ is $24$, which is the smallest least common multiple possible.</p>
+<h2 id="想法-2"><a href="#想法-2" class="headerlink" title="想法"></a>想法</h2><p>这题题意是找出一个$k$，使得$lcm(a+k,b+k)$最小</p>
+<p>首先你要知道$lcm(a,b)=\frac{a \times b }{ gcd(a,b)}$</p>
+<p>The $lcm(a+k,b+k)$ is equal to $\frac{(a+k)\times(b+k)}{gcd(a+k,b+k)}$. In fact, there are not much possible values for the denominator of this fraction.</p>
+<p>Without losing generality, let’s assume $a \leq b$. Applying one step of Euclid’s algorithm ($gcd(a,b)=gcd(b−a,a)$) we can see, that $gcd(a+k,b+k)=gcd(b−a,a+k)$.</p>
+<p>So the $gcd$ is a divisor of $b−a$. Let’s iterate over all divisors $q$ of $b−a$. That also means that $a(modq)=b(modq)$. In case $a(modq)=0$, we can use $k=0$. Otherwise, the corresponding $k$ should be $q−a(modq)$. Lastly, we need to check whether the value of $lcm(a+k,b+k)$ is the smallest found so far.</p>
+<p>Also, one has to be careful when dealing with $k=0$ answer, which was the reason why many solutions got WA 63.</p>
+<p>The complexity is $O(\sqrt{b−a})$.</p>
+<h2 id="The-Code-Of-My-Program-2"><a href="#The-Code-Of-My-Program-2" class="headerlink" title="The Code Of My Program"></a>The Code Of My Program</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou *</span></span><br><span class="line"><span class="comment">*@Language: C++11    *</span></span><br><span class="line"><span class="comment">*********************/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">"\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//typedef __int128 lll;</span></span><br><span class="line"><span class="comment">//const int N=100000+10;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EXP = <span class="number">1E-9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)</span><br><span class="line">            f=<span class="number">-1</span>;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//*******************</span></span><br><span class="line"></span><br><span class="line">ll a,b,c;</span><br><span class="line"></span><br><span class="line"><span class="comment">//*******************</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	a=read(),b=read();</span><br><span class="line">    <span class="keyword">if</span>(a&gt;b)swap(a,b);</span><br><span class="line">    c=b-a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == b) &#123;<span class="built_in">cout</span> &lt;&lt; <span class="string">"0\n"</span>; <span class="keyword">return</span>;&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">vector</span> &lt;ll&gt; Divisors;</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">1</span>,j;i&lt;=<span class="built_in">sqrt</span>(c);i++)&#123;</span><br><span class="line">    	<span class="keyword">if</span>(c%i)<span class="keyword">continue</span>;</span><br><span class="line">    	Divisors.push_back(i);</span><br><span class="line">    	j=c/i;</span><br><span class="line">    	<span class="keyword">if</span>(j!=i)</span><br><span class="line">    	Divisors.push_back(j);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    pair&lt;<span class="keyword">long</span> <span class="keyword">long</span>, <span class="keyword">int</span>&gt; Token = make_pair(LLONG_MAX, INT_MAX);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">auto</span> d: Divisors) &#123;</span><br><span class="line">		ll k = (d - a % d) % d;</span><br><span class="line">		pair&lt;<span class="keyword">long</span> <span class="keyword">long</span>, <span class="keyword">int</span>&gt; NewToken = make_pair((a + k) / __gcd(a+k,b+k) * (b + k), k);</span><br><span class="line">		Token = min(Token, NewToken);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; Token.second &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    freopen(<span class="string">"input.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="comment">//freopen("output.out", "w", stdout);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout.tie(0);</span></span><br><span class="line">    <span class="comment">//ll t ;</span></span><br><span class="line">    <span class="comment">//scanf("%lld",&amp;t);</span></span><br><span class="line">    <span class="comment">//while(t--)&#123;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    init();</span><br><span class="line"></span><br><span class="line">    solve();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Time cost : %lf s\n"</span>,(<span class="keyword">double</span>)clock()/CLOCKS_PER_SEC);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; "Fuck You !" &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -174,25 +295,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -243,7 +345,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/07/30/23.HDOJ-Multi-school-Day-3-T2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/21/60.CodeForce Round 554 Div 2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -257,18 +359,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/30/24.HDOJ-Multi-school-Day-3-T6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          HDOJ-Multi-school-Day-3-T6
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/07/30/22.Segment Tree JT Tree/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">线段树相关</div>
+    <a href="/2019/08/21/CF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CF</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -295,7 +388,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Blow-up-the-city"><span class="toc-number">1.</span> <span class="toc-text">Blow up the city</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Neko-Finds-Grapes"><span class="toc-number">1.</span> <span class="toc-text">A. Neko Finds Grapes</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example"><span class="toc-number">1.4.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Note"><span class="toc-number">1.5.</span> <span class="toc-text">Note</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想法"><span class="toc-number">1.6.</span> <span class="toc-text">想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Code-Of-My-Program"><span class="toc-number">1.7.</span> <span class="toc-text">The Code Of My Program</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-Neko-Performs-Cat-Furrier-Transform"><span class="toc-number">2.</span> <span class="toc-text">B. Neko Performs Cat Furrier Transform</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-1"><span class="toc-number">2.1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input-1"><span class="toc-number">2.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output-1"><span class="toc-number">2.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-1"><span class="toc-number">2.4.</span> <span class="toc-text">Example</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Note-1"><span class="toc-number">2.5.</span> <span class="toc-text">Note</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想法-1"><span class="toc-number">2.6.</span> <span class="toc-text">想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Code-Of-My-Program-1"><span class="toc-number">2.7.</span> <span class="toc-text">The Code Of My Program</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#C-Neko-does-Maths"><span class="toc-number">3.</span> <span class="toc-text">C. Neko does Maths</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-2"><span class="toc-number">3.1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input-2"><span class="toc-number">3.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output-2"><span class="toc-number">3.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Examples"><span class="toc-number">3.4.</span> <span class="toc-text">Examples</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Note-2"><span class="toc-number">3.5.</span> <span class="toc-text">Note</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#想法-2"><span class="toc-number">3.6.</span> <span class="toc-text">想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Code-Of-My-Program-2"><span class="toc-number">3.7.</span> <span class="toc-text">The Code Of My Program</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
