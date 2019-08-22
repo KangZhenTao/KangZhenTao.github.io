@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>ChenShouのBlog</title>
+  <title>BFS | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+  <meta name="description" content="这里是关于BFS的题目以及程序">
 <meta name="keywords" content="学生,ACMer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ChenShouのBlog">
-<meta property="og:url" content="https://kangzhentao.github.io/page/4/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BFS">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/21/62.BFS/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta property="og:description" content="这里是关于BFS的题目以及程序">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-21T12:07:31.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ChenShouのBlog">
-<meta name="twitter:description" content="江西某高校在读本科生，在下会Ai、Fw、Fl、Br、Ae、Pr、Id、Ps 等软件的安装与卸载，精通 CSS、JavaScript、PHP、ASP、C、C++、C#、Java、Ruby、Perl、Lisp、Python、Objective-C、ActionScript、Pascal 等单词的拼写，熟悉 Windows、Linux、OS X、Android、iOS、WP8 等系统的开关机，此为学习博">
+<meta name="twitter:title" content="BFS">
+<meta name="twitter:description" content="这里是关于BFS的题目以及程序">
   
   
     <link rel="icon" href="/favicon.png">
@@ -144,30 +145,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-22.Segment Tree JT Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-62.BFS" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/30/22.Segment Tree JT Tree/">线段树相关</a>
+    <h1 class="article-title" itemprop="name">
+      BFS
     </h1>
   
 
         
-        <a href="/2019/07/30/22.Segment Tree JT Tree/" class="archive-article-date">
-  	<time datetime="2019-07-30T07:23:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-30</time>
+        <a href="/2019/08/21/62.BFS/" class="archive-article-date">
+  	<time datetime="2019-08-21T01:25:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>线段树是一种神奇的数据结构，能将区间数据多次修改与多次求和的复杂度降低,而且它还有升级版</p>
-        
+        <p>这里是关于BFS的题目以及程序</p>
+<a id="more"></a>
+<h1 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h1><h2 id="四子连棋"><a href="#四子连棋" class="headerlink" title="四子连棋"></a><a href="http://codevs.cn/problem/1004/" target="_blank" rel="noopener">四子连棋</a></h2><h3 id="题目描述-Description"><a href="#题目描述-Description" class="headerlink" title="题目描述 Description"></a>题目描述 Description</h3><p>在一个 $4 \times 4$ 的棋盘上摆放了$14$颗棋子，其中有$7$颗白色棋子，$7$颗黑色棋子，有两个空白地带，任何一颗黑白棋子都可以向上下左右四个方向移动到相邻的空格，这叫行棋一步，黑白双方交替走棋，任意一方可以先走，如果某个时刻使得任意一种颜色的棋子形成四个一线（包括斜线），这样的状态为目标棋局。</p>
+<p><img src alt></p>
+<h3 id="输入描述-Input-Description"><a href="#输入描述-Input-Description" class="headerlink" title="输入描述 Input Description"></a>输入描述 Input Description</h3><p>从文件中读入一个$4 \times 4$的初始棋局，黑棋子用$B$表示，白棋子用$W$表示，空格地带用$O$表示。</p>
+<h3 id="输出描述-Output-Description"><a href="#输出描述-Output-Description" class="headerlink" title="输出描述 Output Description"></a>输出描述 Output Description</h3><p>用最少的步数移动到目标棋局的步数。</p>
+<h3 id="样例输入-Sample-Input"><a href="#样例输入-Sample-Input" class="headerlink" title="样例输入 Sample Input"></a>样例输入 Sample Input</h3><blockquote>
+<p>BWBO<br>WBWB<br>BWBW<br>WBWO</p>
+</blockquote>
+<h3 id="样例输出-Sample-Output"><a href="#样例输出-Sample-Output" class="headerlink" title="样例输出 Sample Output"></a>样例输出 Sample Output</h3><blockquote>
+<p>5</p>
+</blockquote>
+<h3 id="数据范围及提示-Data-Size-amp-Hint"><a href="#数据范围及提示-Data-Size-amp-Hint" class="headerlink" title="数据范围及提示 Data Size &amp; Hint"></a>数据范围及提示 Data Size &amp; Hint</h3><p>No Response</p>
+<h3 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h3><p>一般这样找最小搜索深度的题都用广度优先搜索写，但是由于广搜空间占用多，于是我们可以用迭代加深搜索作替代品。</p>
+<p>　　本题迭搜思路就是逐渐增加每一次下棋的最大移动步数，当棋盘状态满足题目所给条件时退出并记录步数。</p>
+<h3 id="AC-Code"><a href="#AC-Code" class="headerlink" title="AC Code"></a>AC Code</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> board[<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> movex[<span class="number">5</span>]=&#123;<span class="number">0</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;,movey[<span class="number">5</span>]=&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">-1</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> Ox1,Oy1,Ox2,Oy2,dep,f;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">avalible</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(board[a][b]!=k&amp;&amp;a&gt;=<span class="number">1</span>&amp;&amp;a&lt;=<span class="number">4</span>&amp;&amp;b&gt;=<span class="number">1</span>&amp;&amp;b&lt;=<span class="number">4</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">jdg</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(board[i][<span class="number">1</span>]==board[i][<span class="number">2</span>]&amp;&amp;board[i][<span class="number">2</span>]==board[i][<span class="number">3</span>]&amp;&amp;board[i][<span class="number">3</span>]==board[i][<span class="number">4</span>]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(board[<span class="number">1</span>][i]==board[<span class="number">2</span>][i]&amp;&amp;board[<span class="number">2</span>][i]==board[<span class="number">3</span>][i]&amp;&amp;board[<span class="number">3</span>][i]==board[<span class="number">4</span>][i]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(board[<span class="number">1</span>][<span class="number">1</span>]==board[<span class="number">2</span>][<span class="number">2</span>]&amp;&amp;board[<span class="number">2</span>][<span class="number">2</span>]==board[<span class="number">3</span>][<span class="number">3</span>]&amp;&amp;board[<span class="number">3</span>][<span class="number">3</span>]==board[<span class="number">4</span>][<span class="number">4</span>]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(board[<span class="number">1</span>][<span class="number">4</span>]==board[<span class="number">2</span>][<span class="number">3</span>]&amp;&amp;board[<span class="number">2</span>][<span class="number">3</span>]==board[<span class="number">3</span>][<span class="number">2</span>]&amp;&amp;board[<span class="number">3</span>][<span class="number">2</span>]==board[<span class="number">4</span>][<span class="number">1</span>]) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> p,<span class="keyword">int</span> q,<span class="keyword">int</span> pre,<span class="keyword">int</span> step)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(jdg())&#123;</span><br><span class="line">        f=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(step&gt;dep) <span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> nx=x+movex[i];</span><br><span class="line">        <span class="keyword">int</span> ny=y+movey[i];</span><br><span class="line">        <span class="keyword">int</span> np=p+movex[i];</span><br><span class="line">        <span class="keyword">int</span> nq=q+movey[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(avalible(nx,ny,pre))&#123;</span><br><span class="line">            swap(board[x][y],board[nx][ny]);</span><br><span class="line"></span><br><span class="line">            dfs(nx,ny,p,q,board[x][y],step+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            swap(board[x][y],board[nx][ny]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(avalible(np,nq,pre))&#123;</span><br><span class="line">            swap(board[p][q],board[np][nq]);</span><br><span class="line"></span><br><span class="line">            dfs(x,y,np,nq,board[p][q],step+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            swap(board[p][q],board[np][nq]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">4</span>;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">4</span>;j++)&#123;</span><br><span class="line">            <span class="keyword">char</span> ch;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;ch;</span><br><span class="line">            <span class="keyword">if</span>(ch==<span class="string">'B'</span>) board[i][j]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(ch==<span class="string">'W'</span>) board[i][j]=<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">else</span> board[i][j]=<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(board[i][j]==<span class="number">3</span>&amp;&amp;!Ox1) Ox1=i,Oy1=j;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(board[i][j]==<span class="number">3</span>) Ox2=i,Oy2=j;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(dep=<span class="number">0</span>;;dep++)&#123;</span><br><span class="line">        dfs(Ox1,Oy1,Ox2,Oy2,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        dfs(Ox1,Oy1,Ox2,Oy2,<span class="number">2</span>,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(f)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d"</span>,dep);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -175,30 +189,87 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/30/22.Segment Tree JT Tree/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/21/62.BFS/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/21/60.CodeForce Round 554 Div 2/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CodeForce Round 554 Div 2
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/15/NewCome/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">基地招新</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -213,559 +284,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-20.HDOJ-Multi-school-Day-2-T11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/28/20.HDOJ-Multi-school-Day-2-T11/">HDOJ_Multi_school Day 2 T11</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/28/20.HDOJ-Multi-school-Day-2-T11/" class="archive-article-date">
-  	<time datetime="2019-07-28T04:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这题主要是对主席树的考察</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/28/20.HDOJ-Multi-school-Day-2-T11/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BFS"><span class="toc-number">1.</span> <span class="toc-text">BFS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#四子连棋"><span class="toc-number">1.1.</span> <span class="toc-text">四子连棋</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述-Description"><span class="toc-number">1.1.1.</span> <span class="toc-text">题目描述 Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入描述-Input-Description"><span class="toc-number">1.1.2.</span> <span class="toc-text">输入描述 Input Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出描述-Output-Description"><span class="toc-number">1.1.3.</span> <span class="toc-text">输出描述 Output Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输入-Sample-Input"><span class="toc-number">1.1.4.</span> <span class="toc-text">样例输入 Sample Input</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#样例输出-Sample-Output"><span class="toc-number">1.1.5.</span> <span class="toc-text">样例输出 Sample Output</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据范围及提示-Data-Size-amp-Hint"><span class="toc-number">1.1.6.</span> <span class="toc-text">数据范围及提示 Data Size &amp; Hint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#想法"><span class="toc-number">1.1.7.</span> <span class="toc-text">想法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC-Code"><span class="toc-number">1.1.8.</span> <span class="toc-text">AC Code</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-18.HDOJ-Multi-school-Day-2-T10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/28/18.HDOJ-Multi-school-Day-2-T10/">HDOJ_Multi_school Day 2 T10</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/28/18.HDOJ-Multi-school-Day-2-T10/" class="archive-article-date">
-  	<time datetime="2019-07-28T04:35:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这是一道简单的思维题，但是我的思维太慢了……</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/28/18.HDOJ-Multi-school-Day-2-T10/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-16.HDOJ-Multi-school-Day-2-T5" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/28/16.HDOJ-Multi-school-Day-2-T5/">HDOJ_Multi_school Day 2 T5</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/28/16.HDOJ-Multi-school-Day-2-T5/" class="archive-article-date">
-  	<time datetime="2019-07-28T04:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>概率DP</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">HDOJ_Multi_chool</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">unsolved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">undone</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/28/16.HDOJ-Multi-school-Day-2-T5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-14.Inclusion-Exclusion Principle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/27/14.Inclusion-Exclusion Principle/">容斥原理</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/27/14.Inclusion-Exclusion Principle/" class="archive-article-date">
-  	<time datetime="2019-07-27T00:27:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在前面，逆元相关习题里面初步涉及到了容斥原理；在这里，我们详细的讲一下容斥原理。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/27/14.Inclusion-Exclusion Principle/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-12.Inverse element Practice" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/26/12.Inverse element Practice/">逆元习题</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/26/12.Inverse element Practice/" class="archive-article-date">
-  	<time datetime="2019-07-26T08:59:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这里是一道逆元的练习题</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/26/12.Inverse element Practice/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-10.Inverse element" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/25/10.Inverse element/">逆元</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/25/10.Inverse element/" class="archive-article-date">
-  	<time datetime="2019-07-25T11:22:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在计算机里面为了存储数据于是我们定义了 int、long、long long、 _ _ 128、……还有小数float double long double ,但是都是有精度范围,因此催生出了大整数加减乘除的题目和求逆元的需求  </p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/25/10.Inverse element/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-8.About_GCD" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/07/23/8.About_GCD/">关于GCD</a>
-    </h1>
-  
-
-        
-        <a href="/2019/07/23/8.About_GCD/" class="archive-article-date">
-  	<time datetime="2019-07-23T11:28:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-23</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>GCD作为缩写意义有多种。它通常表示多核编程的解决方法，也有最大公约数（greatest common divisor，简写为gcd；或highest common factor，简写为hcf），此外它还是共产党的拼音缩写和游戏《鬼吹灯外传》的拼音缩写和“创意群总监”的英文缩写。在这里我讲一下GCD作为最大公约数（greatest common divisor，简写为gcd；或highest common factor，简写为hcf）时的一些计算方法。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/07/23/8.About_GCD/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -794,8 +338,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
