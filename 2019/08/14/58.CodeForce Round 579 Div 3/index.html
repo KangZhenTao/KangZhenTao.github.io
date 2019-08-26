@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="这里是关于CodeForce Round 579 Div 3的一些题解">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-23T02:09:16.872Z">
+<meta property="og:updated_time" content="2019-08-23T02:23:15.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CodeForce Round 579 Div 3">
 <meta name="twitter:description" content="这里是关于CodeForce Round 579 Div 3的一些题解">
@@ -402,14 +402,6 @@
 </blockquote>
 <h2 id="想法-6"><a href="#想法-6" class="headerlink" title="想法"></a>想法</h2><p>To view the main idea of the problem, read the editorial of easy version. The only difference is that for non-negative $b_i$ we don’t need to print “NO” if we cannot take the project, we just need to skip it because we cannot take it at all. And for negative $b_i$ we need to write the knapsack dynamic programming to take the maximum possible number of projects (we need to consider them in order of their sorting). Dynamic programming is pretty easy: $dp \left[  i  \right]    \left[  j  \right] $ means that we consider $i$ projects and our current rating is $j$ and the value of $dp \left[ \; \right]    \left[ \; \right] $ is the maximum number of negative projects we can take. If the current project is the $i_{th}$ negative project in order of sorting, we can do two transitions: $dp \left[ i+1 \right]    \left[ j \right] =max(dp \left[ i+1 \right]    \left[ j \right] ,dp \left[ i \right]    \left[ j \right] )$ and if $r+b_i≥0$ then we can make the transition $dp \left[ i+1 \right]    \left[ j \right]  +b_i=max(dp \left[ i+1 \right]    \left[ j \right] +b_i,dp \left[ i \right]    \left[ j \right] +1)$. And then we just need to find the maximum value among all values of $dp \left[ \; \right]    \left[ \; \right] $ and add the number of positive projects we take to find the answer.</p>
 <h2 id="AC-Program-1"><a href="#AC-Program-1" class="headerlink" title="AC Program"></a>AC Program</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">comp</span><span class="params">(<span class="keyword">const</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&amp; a, <span class="keyword">const</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&amp; b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.first + a.second &gt; b.first + b.second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> _DEBUG</span></span><br><span class="line">	freopen(<span class="string">"input.txt"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="comment">//	freopen("output.txt", "w", stdout);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> n, r;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; r;</span><br><span class="line">	<span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; pos, neg;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">		pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; cur;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; cur.first &gt;&gt; cur.second;</span><br><span class="line">		<span class="keyword">if</span> (cur.second &gt;= <span class="number">0</span>) pos.push_back(cur);</span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line">		    cur.first = max(cur.first, <span class="built_in">abs</span>(cur.second));</span><br><span class="line">		    neg.push_back(cur);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	sort(pos.begin(), pos.end());</span><br><span class="line">	sort(neg.begin(), neg.end(), comp);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> taken = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">int</span>(pos.size()); ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (r &gt;= pos[i].first) &#123;</span><br><span class="line">			r += pos[i].second;</span><br><span class="line">			++taken;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; dp(neg.size() + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(r + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">	dp[<span class="number">0</span>][r] = taken;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">int</span>(neg.size()); ++i) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> cr = <span class="number">0</span>; cr &lt;= r; ++cr) &#123;</span><br><span class="line">			<span class="keyword">if</span> (cr &gt;= neg[i].first &amp;&amp; cr + neg[i].second &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">				dp[i + <span class="number">1</span>][cr + neg[i].second] = max(dp[i + <span class="number">1</span>][cr + neg[i].second], dp[i][cr] + <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			dp[i + <span class="number">1</span>][cr] = max(dp[i + <span class="number">1</span>][cr], dp[i][cr]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> cr = <span class="number">0</span>; cr &lt;= r; ++cr) ans = max(ans, dp[<span class="keyword">int</span>(neg.size())][cr]);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-	<div class="row">
-    <embed src="http://7xov2f.com1.z0.glb.clouddn.com/bash_freshman.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
 <p>int m=3, n=5;<br>vector&lt; vector<int> &gt; vvi(m, vector<int>(n) );<br>　  定义了一个vector容器，元素类型为vector<int>，初始化为包含m个vector<int>对象，每个对象都是一个新创立的vector<int>对象的拷贝，而这个新创立的vector<int>对象被初始化为包含n个0。</int></int></int></int></int></int></p>
 <p>　　每部分解析：<br>　　构造函数vector(size_type n, const allocator_type&amp; alloc = allocator_type())表示构造一个使用alloc分配内存（如果是初学，不用管这个，使用默认的就好）的含n个元素的vector，其中每个元素执行值初始化（对于内置类型即初始化为0）。因此vector<int>(n)表示构造一个无名且含n个0的vector<int>对象。</int></int></p>
 <p>　　构造函数vector(size_type n, const value_type&amp; val, const allocator_type&amp; alloc = allocator_type())表示构造一个使用alloc分配内存的含n个元素的vector，其中每个元素是val的一个拷贝。因此整条语句的含义如第一段所说。<br>　　<br>　　从结果上看，类似于创建了一个m×n的二维数组，而且可以通过v[i][j]的方式来访问元素（vector支持下标访问元素）。</p>
@@ -500,11 +492,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/08/15/NewCome/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/21/62.BFS/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          基地招新
+          BFS
         
       </div>
     </a>
@@ -677,11 +669,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">continue</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color4">continue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,11 +681,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">undone</a>
+                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">unsolved</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">undone</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -702,10 +698,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">solved</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
               </li>
             
             <div class="clearfix"></div>
