@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="感谢这篇博客，我在这里只是用了CV大法防止他失效了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T01:13:51.130Z">
+<meta property="og:updated_time" content="2019-09-12T14:06:11.526Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Math_FFT">
 <meta name="twitter:description" content="感谢这篇博客，我在这里只是用了CV大法防止他失效了">
@@ -169,14 +169,14 @@
 <a id="more"></a>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>先解释几个比较容易混淆的缩写吧</p>
 <p>DFT：离散傅里叶变换—&gt;$O(n^2)$计算多项式乘法</p>
-<p>FFT：快速傅里叶变换—&gt;$O(n * log(n)$计算多项式乘法</p>
+<p>FFT：快速傅里叶变换—&gt;$O(n  \times  log(n)$计算多项式乘法</p>
 <p>FNTT/NTT：快速傅里叶变换的优化版—&gt;优化常数及误差</p>
 <p>FWT：快速沃尔什变换—&gt;利用类似FFT的东西解决一类卷积问题</p>
 <p>MTT：毛爷爷的FFT—&gt;非常nb/任意模数</p>
 <p>FMT 快速莫比乌斯变化—&gt;感谢stump提供</p>
 <h1 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h1><h2 id="系数表示法"><a href="#系数表示法" class="headerlink" title="系数表示法"></a>系数表示法</h2><p>设 $A(x)$ 表示一个 $n-1$ 次的多项式</p>
-<p>则 $A(x) = \sum_{i=0}^{n-1} a_i * x^i $</p>
-<p>例如 $A(3) = 2 + 3 * x + x^2 $</p>
+<p>则 $A(x) = \sum_{i=0}^{n-1} a_i  \times  x^i $</p>
+<p>例如 $A(3) = 2 + 3  \times  x + x^2 $</p>
 <p>如果利用朴素的方法计算两个多项式的乘积的系数表达，复杂度会达到$O(mn)$<br>第一个多项式中每个系数都需要与第二个多项式的每个系数相乘</p>
 <h2 id="点值表示法"><a href="#点值表示法" class="headerlink" title="点值表示法"></a>点值表示法</h2><p>将$n$互不相同的$x$带入多项式，会得到$n$个不同的取值$y$<br>则该多项式被这$n$个点$(x_1,y_1),(x_2,y_2),…,(x_n,y_n)$唯一确定</p>
 <p>其中$y_i = \sum_{j=0}^{n-1}a_j∗x_i^j$<br>例如：上面的例子用点值表示法可以为$(0,2),(1,6),(2,12)$<br>利用这种方法计算多项式乘法的时间复杂度仍然为$O(n^2)$<br>（选点$O(n)$，每次计算$O(n)$）</p>
@@ -206,7 +206,39 @@
 <p>那么如何计算它们的值呢？这个问题可以由欧拉公式解决:</p>
 <script type="math/tex; mode=display">\omega_{n}^{k}=\cos\ k \times \frac{2\pi}{n}+i\sin k \times \frac{2\pi}{n}</script><p><a href></a></p>
 <p>图中向量$AB$表示的复数为8次单位根<br>单位根的幅角为周角的$\frac{1}{n}$</p>
-<script type="math/tex; mode=display">\omega_{n}^{k}=\cos k\dfrac{2\pi}{n}+i\sin k\dfrac {2\pi }{n}</script><script type="math/tex; mode=display">\omega_{2n}^{2k}=\omega_{n}^{k}</script><script type="math/tex; mode=display">\omega_{n}^{k+\frac{n}{2}}=-\omega_{n}^{k}</script><script type="math/tex; mode=display">\omega _{n}^{0}=\omega _{n}^{n}=1</script>
+<script type="math/tex; mode=display">
+\begin{align}
+\omega_{n}^{k}&=\cos k\dfrac{2\pi}{n}+i\sin k\dfrac {2\pi }{n} \\
+\omega_{2n}^{2k}&=\omega_{n}^{k}\\
+\omega_{n}^{k+\frac{n}{2}}&=-\omega_{n}^{k}\\
+\omega_{n}^{0}&=\omega_{n}^{n}=1\\
+\end{align}</script><h1 id="正片开始"><a href="#正片开始" class="headerlink" title="正片开始"></a>正片开始</h1><h2 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h2><p>我们前面提到过，一个$n$次多项式可以被$n$个点唯一确定。</p>
+<p>那么我们可以把单位根的$0$到$n−1$次幂带入，这样也可以把这个多项式确定出来。但是这样仍然是$O(n^2)$的</p>
+<p>我们假设多项式$A(x)$的系数为$(a_o,a_1,a_2,\ldots,a_{n-1})$</p>
+<p>那么有 ：</p>
+<script type="math/tex; mode=display">A(x)=a_0+a_1 \times x+a_2 \times {x^2}+a_3 \times {x^3}+a_4 \times {x^4}+a_5 \times {x^5}+ \dots+a_{n-2} \times x^{n-2}+a_{n-1} \times x^{n-1}</script><p>用上高中数学里面的奇偶分析，把该多项式按照奇偶分开，有：</p>
+<script type="math/tex; mode=display">A(x)=(a_0+a_2 \times {x^2}+a_4 \times {x^4}+\dots+a_{n-2} \times x^{n-2})+(a_1 \times x+a_3 \times {x^3}+a_5 \times {x^5}+ \dots+a_{n-1} \times x^{n-1})</script><p>分成奇偶两个多项式 ， 有 ：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+A_1(x) &=a_0+a_2 \times {x}+a_4 \times {x^2}+\dots+a_{n-2} \times x^{\frac{n}{2}-1} \\ 
+A_2(x) &=a_1+a_3 \times {x}+a_5 \times {x^2}+ \dots+a_{n-1} \times x^{\frac{n}{2}-1}\\
+A(x)   &=A_1(x^2)+xA_2(x^2)
+\end{align}</script><p>那么结合之前的小知识，我们有了一个大胆的想法：把单位复数带进去</p>
+<p>我们将$\omega_n^k (k&lt;\frac{n}{2})$代入，有</p>
+<script type="math/tex; mode=display">
+\begin{align}
+A(\omega_n^k) &=A_1(\omega_n^{2k})+\omega_n^kA_2(\omega_n^{2k})\\
+              &=A_1(\omega_{\frac{n}{2}}^{k})+\omega_n^kA_2(\omega_{\frac{n}{2}}^{k})
+\end{align}</script><p>然后结合性质把$$也代入 ，有 </p>
+<script type="math/tex; mode=display">
+\begin{align}
+A(\omega_n^{k+\frac{n}{2}}) &=A_1(\omega_n^{2k+n})+\omega_n^{k+\frac{n}{2}}(\omega_n^{2k+n})\\
+                            &=A_1(\omega_n^{2k}*\omega_n^n)-\omega_n^kA_2(\omega_n^{2k}*\omega_n^n)\\
+                            &=A_1(\omega_n^{2k})-\omega_n^kA_2(\omega_n^{2k})
+\end{align}</script><p>这两个式子只有一个常数项不同<br>那么当我们在枚举第一个式子的时候，我们可以$O(1)$的得到第二个式子的值<br>又因为第一个式子的$k$在取遍$\left[ 0 , \frac{n}{2}−1 \right] $ 时 ，$k+\frac{n}{2}$取遍了$\left[\frac{n}{2},n−1 \right]$<br>所以我们将原来的问题缩小了一半<br>而缩小后的问题仍然满足原问题的性质，所以我们可以递归的去解决这个问题<br>直到多项式仅剩一个常数项，这时候我们直接返回</p>
+<p>时间复杂度：<br>不难看出FFT是类似于线段树一样的分治算法。<br>因此它的时间复杂度为$O(nlog(n))$</p>
+<h2 id="快速傅里叶逆变换"><a href="#快速傅里叶逆变换" class="headerlink" title="快速傅里叶逆变换"></a>快速傅里叶逆变换</h2><p>我们上面的讨论是基于点值表示法的。<br>但是在平常的学习和研究中很少用点值表示法来表示一个多项式。<br>所以我们要考虑如何把点值表示法转换为系数表示法，这个过程叫做傅里叶逆变换</p>
+
       
 
       
@@ -307,7 +339,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多项式"><span class="toc-number">2.</span> <span class="toc-text">多项式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#系数表示法"><span class="toc-number">2.1.</span> <span class="toc-text">系数表示法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点值表示法"><span class="toc-number">2.2.</span> <span class="toc-text">点值表示法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些小知识"><span class="toc-number">3.</span> <span class="toc-text">一些小知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#向量"><span class="toc-number">3.1.</span> <span class="toc-text">向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#园的弧度制"><span class="toc-number">3.2.</span> <span class="toc-text">园的弧度制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平行四边形定则"><span class="toc-number">3.3.</span> <span class="toc-text">平行四边形定则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复数"><span class="toc-number">3.4.</span> <span class="toc-text">复数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.4.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算法则"><span class="toc-number">3.4.2.</span> <span class="toc-text">运算法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位根"><span class="toc-number">3.4.3.</span> <span class="toc-text">单位根</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多项式"><span class="toc-number">2.</span> <span class="toc-text">多项式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#系数表示法"><span class="toc-number">2.1.</span> <span class="toc-text">系数表示法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#点值表示法"><span class="toc-number">2.2.</span> <span class="toc-text">点值表示法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#一些小知识"><span class="toc-number">3.</span> <span class="toc-text">一些小知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#向量"><span class="toc-number">3.1.</span> <span class="toc-text">向量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#园的弧度制"><span class="toc-number">3.2.</span> <span class="toc-text">园的弧度制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#平行四边形定则"><span class="toc-number">3.3.</span> <span class="toc-text">平行四边形定则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复数"><span class="toc-number">3.4.</span> <span class="toc-text">复数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">3.4.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算法则"><span class="toc-number">3.4.2.</span> <span class="toc-text">运算法则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单位根"><span class="toc-number">3.4.3.</span> <span class="toc-text">单位根</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#正片开始"><span class="toc-number">4.</span> <span class="toc-text">正片开始</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速傅里叶变换"><span class="toc-number">4.1.</span> <span class="toc-text">快速傅里叶变换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#快速傅里叶逆变换"><span class="toc-number">4.2.</span> <span class="toc-text">快速傅里叶逆变换</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -462,15 +494,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">solved</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">unsolved</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">undone</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solved</a>
               </li>
              
               <li class="article-tag-list-item">
