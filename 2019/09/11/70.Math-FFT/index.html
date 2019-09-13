@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="感谢这篇博客，我在这里只是用了CV大法防止他失效了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-13T01:52:20.978Z">
+<meta property="og:updated_time" content="2019-09-13T03:12:15.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Math_FFT">
 <meta name="twitter:description" content="感谢这篇博客，我在这里只是用了CV大法防止他失效了">
@@ -186,7 +186,7 @@
 <h1 id="一些小知识"><a href="#一些小知识" class="headerlink" title="一些小知识"></a>一些小知识</h1><h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><p>同时具有大小和方向的量<br>在几何中通常用带有箭头的线段表示</p>
 <h2 id="园的弧度制"><a href="#园的弧度制" class="headerlink" title="园的弧度制"></a>园的弧度制</h2><p>等于半径长的圆弧所对的圆心角叫做1弧度的角，用符号rad表示，读作弧度。用弧度作单位来度量角的制度叫做弧度制</p>
 <p>公式:</p>
-<script type="math/tex; mode=display">\begin{align} 1^{\circ} &= \frac{\pi}{180} rad \\ 180^{\circ} &= \pi rad \end{align}</script><h2 id="平行四边形定则"><a href="#平行四边形定则" class="headerlink" title="平行四边形定则"></a>平行四边形定则</h2><p><a href></a></p>
+<script type="math/tex; mode=display">\begin{align} 1^{\circ} &= \frac{\pi}{180} rad \\ 180^{\circ} &= \pi rad \end{align}</script><h2 id="平行四边形定则"><a href="#平行四边形定则" class="headerlink" title="平行四边形定则"></a>平行四边形定则</h2><p><a href="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/FFT_1.png?raw=true" target="_blank" rel="noopener"></a></p>
 <p>平行四边形定则：$AB+AD=AC$</p>
 <h2 id="复数"><a href="#复数" class="headerlink" title="复数"></a>复数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>设$a,b$为实数，$i^2=−1$，形如$a+bi$的数叫复数，其中$i$被称为虚数单位，复数域是目前已知最大的域<br>在复平面中，$x$代表实数，$y$轴（除原点外的点）代表虚数，从原点$(0,0)$到$(a,b)$的向量表示复数$a+bi$<br>模长：从原点$(0,0)$到点$(a,b)$的距离，即$\sqrt{a^2+b^2}$<br>幅角：假设以逆时针为正方向，从x轴正半轴到已知向量的转角的有向角叫做幅角</p>
 <h3 id="运算法则"><a href="#运算法则" class="headerlink" title="运算法则"></a>运算法则</h3><p>加法：</p>
@@ -204,7 +204,7 @@
 <p>在复平面上，以原点为圆心，$1$为半径作圆，所得的圆叫单位圆。以圆点为起点，圆的$n$等分点为终点，做$n$个向量，设幅角为正且最小的向量对应的复数为$ω_n$，称为$n$次单位根。</p>
 <p>根据复数乘法的运算法则，其余$n−1$个复数为$ω_{n}^{2},ω_{n}^{3},…,ω_{n}^{n}$<br>注意$ω_{n}^{0}=ω_{n}^{n}=1$（对应复平面上以x轴为正方向的向量）</p>
 <p>那么如何计算它们的值呢？这个问题可以由欧拉公式解决:</p>
-<script type="math/tex; mode=display">\omega_{n}^{k}=\cos\ k \times \frac{2\pi}{n}+i\sin k \times \frac{2\pi}{n}</script><p><a href></a></p>
+<script type="math/tex; mode=display">\omega_{n}^{k}=\cos\ k \times \frac{2\pi}{n}+i\sin k \times \frac{2\pi}{n}</script><p><a href="https://github.com/KangZhenTao/KangZhenTao.github.io/blob/master/img/FFT_2.png?raw=true" target="_blank" rel="noopener"></a></p>
 <p>图中向量$AB$表示的复数为8次单位根<br>单位根的幅角为周角的$\frac{1}{n}$</p>
 <script type="math/tex; mode=display">
 \begin{align}
@@ -507,11 +507,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">blog</a>
+                <a href="javascript:void(0)" class="js-tag color5">done</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">done</a>
+                <a href="javascript:void(0)" class="js-tag color5">blog</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,11 +527,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solved</a>
+                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JXCPC</a>
+                <a href="javascript:void(0)" class="js-tag color2">solved</a>
               </li>
             
             <div class="clearfix"></div>
