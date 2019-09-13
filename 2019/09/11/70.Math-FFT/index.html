@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ChenShouのBlog">
 <meta property="og:description" content="感谢这篇博客，我在这里只是用了CV大法防止他失效了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-12T14:06:11.526Z">
+<meta property="og:updated_time" content="2019-09-13T01:52:20.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Math_FFT">
 <meta name="twitter:description" content="感谢这篇博客，我在这里只是用了CV大法防止他失效了">
@@ -238,7 +238,32 @@ A(\omega_n^{k+\frac{n}{2}}) &=A_1(\omega_n^{2k+n})+\omega_n^{k+\frac{n}{2}}(\ome
 \end{align}</script><p>这两个式子只有一个常数项不同<br>那么当我们在枚举第一个式子的时候，我们可以$O(1)$的得到第二个式子的值<br>又因为第一个式子的$k$在取遍$\left[ 0 , \frac{n}{2}−1 \right] $ 时 ，$k+\frac{n}{2}$取遍了$\left[\frac{n}{2},n−1 \right]$<br>所以我们将原来的问题缩小了一半<br>而缩小后的问题仍然满足原问题的性质，所以我们可以递归的去解决这个问题<br>直到多项式仅剩一个常数项，这时候我们直接返回</p>
 <p>时间复杂度：<br>不难看出FFT是类似于线段树一样的分治算法。<br>因此它的时间复杂度为$O(nlog(n))$</p>
 <h2 id="快速傅里叶逆变换"><a href="#快速傅里叶逆变换" class="headerlink" title="快速傅里叶逆变换"></a>快速傅里叶逆变换</h2><p>我们上面的讨论是基于点值表示法的。<br>但是在平常的学习和研究中很少用点值表示法来表示一个多项式。<br>所以我们要考虑如何把点值表示法转换为系数表示法，这个过程叫做傅里叶逆变换</p>
-
+<p>现有$(y_0,y_1,y_2,\dots,y_{n-1})$为$(a_0,a_1,a_2,\dots,a_{n-1})$的傅里叶变换（点值表示）<br>设有另一向量$(c_0,c_1,c_2,\dots,c_{n-1})$满足：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+c_k &=\sum_{i=0}^{n-1}y_i(\omega_n^{-k})^i\\
+&=\sum_{i=0}^{n-1}(\sum_{j=0}^{n-1}a_j(\omega_n^i)^j)(\omega_n^{-k})^i\\
+&=\sum_{i=0}^{n-1}(\sum_{j=0}^{n-1}a_j(\omega_n^j)^i)(\omega_n^{-k})^i\\
+&=\sum_{i=0}^{n-1}(\sum_{j=0}^{n-1}a_j(\omega_n^j)^i(\omega_n^{-k})^i)\\
+&=\sum_{i=0}^{n-1}\sum_{j=0}^{n-1}a_j(\omega_n^j)^i(\omega_n^{-k})^i\\
+&=\sum_{i=0}^{n-1}\sum_{j=0}^{n-1}a_j(\omega_n^{j-k})^i\\
+&=\sum_{j=0}^{n-1}a_j(\sum_{i=0}^{n-1}(\omega_n^{j-k})^i)
+\end{align}</script><p>设$S(x)=\sum_{i=0}^{n-1}x^i$<br>将$\omega_n^k$代入得</p>
+<script type="math/tex; mode=display">S(\omega_n^k)=1+(\omega_n^k)+(\omega_n^k)^2+\dots(\omega_n^k)^{n-1}</script><p>接下来，在$k!=0$时，等式两边同时乘以$w_n^k$有</p>
+<script type="math/tex; mode=display">\omega_n^kS(\omega_n^k)=\omega_n^k+(\omega_n^k)^2+(\omega_n^k)^3+\dots(\omega_n^k)^{n}</script><p>将上面两式相减，有</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\omega_n^kS(\omega_n^k)-S(\omega_n^k) &= (\omega_n^k)^{n}-1\\
+S(\omega_n^k) &= \frac{(\omega_n^k)^{n}-1}{\omega_n^k-1}\\
+S(\omega_n^k) &= \frac{(\omega_n^n)^{k}-1}{\omega_n^k-1}\\
+S(\omega_n^k) &= \frac{1-1}{\omega_n^k-1}
+\end{align}</script><p>观察得，分子为0，分母不为0 </p>
+<p>因此，当$k!=0$时$S(\omega_{n}^{k})=0$</p>
+<p>另一种情况 ： $k==0$ 时 ， 显然有$S(\omega_{n}^{k})=n$</p>
+<p>因此在这个式子里面：</p>
+<script type="math/tex; mode=display">c_k=\sum_{j=0}^{n-1}a_j(\sum_{i=0}^{n-1}(\omega_n^{j-k})^i)</script><p>当$j \neq k$时 ， 值为$0$；<br>当$j = k$时 ， 值为$n$；</p>
+<p>因此 ， 有</p>
+<script type="math/tex; mode=display">c_k=na_k</script><script type="math/tex; mode=display">a_k=\frac{c_k}{n}</script>
       
 
       
@@ -494,15 +519,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">solved</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">unsolved</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">undone</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">solved</a>
               </li>
              
               <li class="article-tag-list-item">
