@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://kangzhentao.github.io">
-  <title>JXCPC 1006 | ChenShouのBlog</title>
+  <title>Pohlig Hellman | ChenShouのBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是暴力得到概率然后gcd一下化为最简分数">
-<meta name="keywords" content="done,solved,JXCPC">
+  <meta name="description" content="用于寻找离散对数的Pohlig-Hellman算法的示例这是一篇翻译文章，原文请看 Example of the Pohlig-Hellman Technique for finding discrete logarithms">
+<meta name="keywords" content="学生,ACMer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JXCPC 1006">
-<meta property="og:url" content="https://kangzhentao.github.io/2019/07/21/2.6 JXCPC 1006/index.html">
+<meta property="og:title" content="Pohlig Hellman">
+<meta property="og:url" content="https://kangzhentao.github.io/2019/08/05/32.Pohlig-Hellman/index.html">
 <meta property="og:site_name" content="ChenShouのBlog">
-<meta property="og:description" content="这是暴力得到概率然后gcd一下化为最简分数">
+<meta property="og:description" content="用于寻找离散对数的Pohlig-Hellman算法的示例这是一篇翻译文章，原文请看 Example of the Pohlig-Hellman Technique for finding discrete logarithms">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-14T08:52:14.738Z">
+<meta property="og:updated_time" content="2019-08-09T06:27:23.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JXCPC 1006">
-<meta name="twitter:description" content="这是暴力得到概率然后gcd一下化为最简分数">
+<meta name="twitter:title" content="Pohlig Hellman">
+<meta name="twitter:description" content="用于寻找离散对数的Pohlig-Hellman算法的示例这是一篇翻译文章，原文请看 Example of the Pohlig-Hellman Technique for finding discrete logarithms">
   
   
     <link rel="icon" href="/favicon.png">
@@ -145,34 +145,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-2.6 JXCPC 1006" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-32.Pohlig-Hellman" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JXCPC 1006
+      Pohlig Hellman
     </h1>
   
 
         
-        <a href="/2019/07/21/2.6 JXCPC 1006/" class="archive-article-date">
-  	<time datetime="2019-07-21T10:50:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+        <a href="/2019/08/05/32.Pohlig-Hellman/" class="archive-article-date">
+  	<time datetime="2019-08-05T09:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是暴力得到概率然后gcd一下化为最简分数</p>
+        <h1 id="用于寻找离散对数的Pohlig-Hellman算法的示例"><a href="#用于寻找离散对数的Pohlig-Hellman算法的示例" class="headerlink" title="用于寻找离散对数的Pohlig-Hellman算法的示例"></a>用于寻找离散对数的Pohlig-Hellman算法的示例</h1><p>这是一篇翻译文章，原文请看</p>
+<p><a href="http://www-math.ucdenver.edu/~wcherowi/courses/m5410/phexam.html" target="_blank" rel="noopener">Example of the Pohlig-Hellman Technique for finding discrete logarithms</a></p>
 <a id="more"></a>
-<h1 id="String"><a href="#String" class="headerlink" title="String"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6572" target="_blank" rel="noopener">String</a></h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Avin has a string. He would like to uniform-randomly select four characters (selecting the same character is allowed) from it. You are asked to calculate the probability of the four characters being ”avin” in order.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains $ n (1 \leq n \leq 100) $, the length of the string. The second line contains the string. To simplify the problem, the characters of the string are from ’a’, ’v’, ’i’, ’n’.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Print the reduced fraction (the greatest common divisor of the numerator and denominator is $1$), representing the probability. If the answer is $0$, you should output $”0/1”$.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><p>4<br>avin<br>4<br>aaaa</p>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><p>1/256<br>0/1</p>
-<h2 id="The-Code-Of-My-Program"><a href="#The-Code-Of-My-Program" class="headerlink" title="The Code Of My Program"></a>The Code Of My Program</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*********************</span></span><br><span class="line"><span class="comment">*@Author:   ChenShou *</span></span><br><span class="line"><span class="comment">*@Language: C++11    *</span></span><br><span class="line"><span class="comment">*********************/</span></span><br><span class="line"><span class="comment">//#include &lt;bits/stdc++.h&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> comment(linker, <span class="meta-string">"/STACK:102400000,102400000"</span>)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//#define DEBUG</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RI register int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> endl <span class="meta-string">"\n"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="comment">//typedef __int128 lll;</span></span><br><span class="line"><span class="comment">//const int N=100000+10;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">100000</span>+<span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> EXP = <span class="number">1E-9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">long</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> x=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> ch=getchar();</span><br><span class="line">    <span class="keyword">while</span>(ch&lt;<span class="string">'0'</span>||ch&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ch==<span class="string">'-'</span>)</span><br><span class="line">            f=<span class="number">-1</span>;</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">        x=(x&lt;&lt;<span class="number">1</span>)+(x&lt;&lt;<span class="number">3</span>)+(ch^<span class="number">48</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    freopen(<span class="string">"input.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="comment">//freopen("output.out", "w", stdout);</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout.tie(0);</span></span><br><span class="line">    <span class="comment">//scanf("%d",&amp;t);</span></span><br><span class="line">    <span class="comment">//while(t--)&#123;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line">    ll m ;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lld"</span>,&amp;m)!=EOF)&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">105</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>,s);</span><br><span class="line">    ll a=<span class="number">0</span>,v=<span class="number">0</span>,i=<span class="number">0</span>,n=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll ii=<span class="number">0</span>;ii&lt;m;ii++)&#123;</span><br><span class="line">    	<span class="keyword">if</span>(s[ii]==<span class="string">'a'</span>) a++;</span><br><span class="line">    	<span class="keyword">if</span>(s[ii]==<span class="string">'v'</span>) v++;</span><br><span class="line">    	<span class="keyword">if</span>(s[ii]==<span class="string">'i'</span>) i++;</span><br><span class="line">    	<span class="keyword">if</span>(s[ii]==<span class="string">'n'</span>) n++;</span><br><span class="line">    &#125;</span><br><span class="line">    ll zi = a/__gcd(a,m)*v/__gcd(v,m)*i/__gcd(i,m)*n/__gcd(n,m);</span><br><span class="line">    ll mu = m*m*m*m/__gcd(a,m)/__gcd(v,m)/__gcd(i,m)/__gcd(n,m);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld/%lld\n"</span>,zi,mu);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> DEBUG</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Time cost : %lf s\n"</span>,(<span class="keyword">double</span>)clock()/CLOCKS_PER_SEC);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">    <span class="comment">//cout &lt;&lt; "Fuck You !" &lt;&lt; endl;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> 令质数 <script type="math/tex">\; p = 8101 \;</script>  ， 令生产数的底数 <script type="math/tex">\; Z_{8101} \;</script> 为 <script type="math/tex">\; a = 6 \;</script> 请找出 <script type="math/tex">\; x \;</script> 使得 <script type="math/tex">\; a^x = 7531 \; mod \; 8101 \;</script></p>
+<p>观察可得$ \; p-1 = 8100 = (2^2)(3^4)(5^2) \; $是一系列小质数的生成数. 我们应当令 $ \; x_2 = x \; mod \; (2^2) \; $, $ \; x_3 = x \; mod \; (3^4) \; $ 还有 $ \; x_5 = x \; mod \; (5^2) \; $.</p>
+<h2 id="Determination-of-x-2"><a href="#Determination-of-x-2" class="headerlink" title="Determination of $x_2$."></a>Determination of $x_2$.</h2><p>因为 $ \; x_2 \; $ 是 $ \; mod \; 4 \; $ 的数， 我们将有 $ \; x_2 = c_0 + c_1 (2) \; $, 使得系数是 $ \; 0 \; $ 或者 $ \; 1 \; $. 我们将用以下步骤确定  $ \; 7531^{ \frac{p-1}{2} } = 7531^{4050} = -1 \; $ 然后令其 $ \; = \; a^{\frac{c_0 (p-1)}{2}} \; $, 因此我们得到了 $ \; c_0 = 1 \; $.</p>
+<p>现在将 $ \; 7531 \; $ 除以 $ \; a^{c0} \; $ 得到$ \; 7531(a^{-1}) = 7531(6751) = 8006 \; mod \; p \; $.$ \; 8006^{ \frac {p-1} {4} } = 8006^{2025} = 1 \; $然后就像这个一样 $ \; = a^{\frac{c_1 (p-1)}{2}} \; $, 我们得到了$\; c_1 = 0 \; $</p>
+<script type="math/tex; mode=display">x_2 = c_0 + c_1 (2) = 1 + 0(2) = 1</script><h2 id="Determination-of-x3"><a href="#Determination-of-x3" class="headerlink" title="Determination of x3."></a>Determination of x3.</h2><p>Since $ \; x_3 \; $ is a number $ \; mod \; 81 \; $, we have $ \; x_3 = c_0 + c_1 (3) + c_2 (9) + c_3 (27)$, with the coefficients being either $ \; 0, 1 \; $ or$ \;  2 \; $. It will be of use to know the numbers $ \; a^{\frac{p-1}{3}} = 5883 \; $, and $ \; a^{\frac{2(p-1)}{3}} = 2217 \; $.$7531^{\frac{p-1}{3}} = 2217$, so $c_0 = 2$.</p>
+<p>Now divide $7531$ by $a^{c_0}$ to get$7531(a^{-2}) = 6735 \; mod \; p$.$6735^{\frac{p-1}{9}} = 1$, so $c_1 = 0$.Now divide $6735$ by $a^{3c_1}$ to get<br>$6735(a^0) = 6735 \mod p$.$6735^{\frac{p-1}{27}} = 2217$, so $c_2 = 2$.</p>
+<p>Now divide $6735$ by $a^{9c_2}$ to get$6735(a^{-18}) = 6992 \; mod \; p$.$6992^{\frac{p-1}{81}} = 5883$, so $c_3 = 1$.</p>
+<script type="math/tex; mode=display">x3 = 2 + 0(3) + 2(9) + 1(27) = 47</script><h2 id="Determination-of-x-5"><a href="#Determination-of-x-5" class="headerlink" title="Determination of $x_5$."></a>Determination of $x_5$.</h2><p>Since $ \; x_5 \; $ is a number $ \; mod \; 25 \; $, $ \; x_5 = c_0 + c_1 (5) \; $, with the coefficients being either $ \; 0, 1, 2, 3 \; $or $ \; 4 \; $. We need to compute $ \; a^{\frac{p-1}{5}} = 3547 \; $, $ \; a^{\frac{2(p-1)}{5}} = 356  \; $, $ \; a^{\frac{3(p-1)}{5}} = 7077 \; $, $ \; a^{\frac{4(p-1)}{5}} = 5221 \; $.$ \; 7531^{\frac{p-1}{5}} = 5221 \; $, so $ \; c_0 = 4 \; $.</p>
+<p>Divide $ \; 7531 \; $ by $ \; a^{c_0} \; $ to get $ \; 7531(a^{-4}) = 7613 \; mod \; p \; $.$ \; 7613^{\frac{p-1}{25}} = 356 \; $, so $ \; c_1 = 2 \; $.</p>
+<script type="math/tex; mode=display">x_5 = 4 + 2(5) = 14</script><h2 id="Determination-of-x"><a href="#Determination-of-x" class="headerlink" title="Determination of $x$."></a>Determination of $x$.</h2><p>We now use the Chinese Remainder Theorem to compute the common solution of the congruences,</p>
+<script type="math/tex; mode=display">
+\begin{array}
+\\
+x & = &  1 \; mod \; 4\\
+x & = & 47 \; mod \; 81\\
+x & = & 14 \; mod \; 25\\
+M_1 & = & 8100/4 = 2025\\
+y_1 & = & M_1^{-1} \; mod \; 4\\
+y_1 & = & 1\\
+M_2 & = & 8100/81 = 100\\
+y_2 & = & M_2^{-1} \; mod \; 81\\
+y_2 & = & 64\\
+M_3 & = & 8100/25 = 324\\
+y_3 & = & M_3^{-1} \; mod \; 25\\
+y_3 & = & 24\\
+\\
+\end{array}</script><script type="math/tex; mode=display">x = 1(2025)(1) + 47(100)(64) + 14(324)(24) = 6689 \; mod \; 8100</script>
       
 
       
@@ -180,25 +202,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">done</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">solved</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JXCPC</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -249,7 +252,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/07/21/2.6 JXCPC 1006/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kangzhentao.github.io/2019/08/05/32.Pohlig-Hellman/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +266,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/07/21/2.7 JXCPC 1007/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/08/05/34. KMP and Ex KMP ( Z Algorithm ) /" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          JXCPC 1007
+          KMP &amp; Ex KMP ( Z Algorithm )
         
       </div>
     </a>
   
   
-    <a href="/2019/07/21/2.4 JXCPC 1004/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JXCPC 1004</div>
+    <a href="/2019/08/05/32.Pohlig-Hellman ( EN ) /" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Pohlig Hellman</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -301,7 +304,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#String"><span class="toc-number">1.</span> <span class="toc-text">String</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem-Description"><span class="toc-number">1.1.</span> <span class="toc-text">Problem Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-number">1.2.</span> <span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-number">1.3.</span> <span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-number">1.4.</span> <span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-number">1.5.</span> <span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Code-Of-My-Program"><span class="toc-number">1.6.</span> <span class="toc-text">The Code Of My Program</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#用于寻找离散对数的Pohlig-Hellman算法的示例"><span class="toc-number">1.</span> <span class="toc-text">用于寻找离散对数的Pohlig-Hellman算法的示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Determination-of-x-2"><span class="toc-number">1.1.</span> <span class="toc-text">Determination of $x_2$.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Determination-of-x3"><span class="toc-number">1.2.</span> <span class="toc-text">Determination of x3.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Determination-of-x-5"><span class="toc-number">1.3.</span> <span class="toc-text">Determination of $x_5$.</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Determination-of-x"><span class="toc-number">1.4.</span> <span class="toc-text">Determination of $x$.</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
